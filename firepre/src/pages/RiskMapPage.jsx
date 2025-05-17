@@ -3,13 +3,15 @@ import MapView from '../components/MapView';
 import PredictionPanel from '../components/PredictionPanel';
 import RiskLevelCard from '../components/RiskLevelCard';
 import WeatherInfo from '../components/WeatherInfo';
-import { getWeatherData } from '../utils/getWeatherData';
-import { predictRisk } from '../utils/predictor';
+import ApiStatus from '../components/ApiStatus';
+import { getWeatherData } from '../utils/GetWeatherdata';
+import { predictRisk } from '../utils/Predictor';
 
 export default function RiskMapPage() {
   const [weather, setWeather] = useState(null);
   const [riskResult, setRiskResult] = useState(null);
   const [selectedLocation, setSelectedLocation] = useState(null);
+  const [apiStatus, setApiStatus] = useState({ status: '', message: '' });
 
   const handleLocationChange = async ({ lat, lng }) => {
     setSelectedLocation({ lat, lng });
@@ -17,13 +19,56 @@ export default function RiskMapPage() {
     setWeather(data);
   };
 
-  const handlePrediction = (inputs) => {
-    const result = predictRisk(inputs);
-    setRiskResult(result);
+  const handlePrediction = async (inputs) => {
+    if (selectedLocation) {
+      // Include latitude and longitude in prediction inputs
+      const predictionData = {
+        ...inputs,
+        latitude: selectedLocation.lat,
+        longitude: selectedLocation.lng,
+        // Add a default precipitation value if not provided
+        precipitation: 0
+      };
+      
+      try {
+        // Show loading status
+        setApiStatus({
+          status: 'loading',
+          message: 'Contacting backend API for prediction...'
+        });
+        
+        const result = await predictRisk(predictionData);
+        setRiskResult(result);
+        
+        // Show success status
+        setApiStatus({
+          status: 'success',
+          message: `Successfully received prediction: ${result.level} risk (${result.percentage}%)`
+        });
+      } catch (error) {
+        console.error("Error getting prediction:", error);
+        // Show error status
+        setApiStatus({
+          status: 'error',
+          message: `Error: ${error.message || 'Failed to get prediction from API'}`
+        });
+      }
+    } else {
+      // If no location is selected, we can't make an API call
+      // We'll use the client-side prediction as a fallback
+      const result = predictRisk(inputs);
+      setRiskResult(result);
+      
+      setApiStatus({
+        status: 'loading',
+        message: 'No location selected. Using client-side prediction...'
+      });
+    }
   };
 
   return (
     <div className="risk-map-page">
+      <ApiStatus status={apiStatus.status} message={apiStatus.message} />
       <div className="container">
         <div className="page-header">
           <h1 className="page-title">AI Risk Map</h1>

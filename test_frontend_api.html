@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Test</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1 {
+            color: #333;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        input {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            cursor: pointer;
+        }
+        #result {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #f5f5f5;
+            border-radius: 5px;
+            white-space: pre-wrap;
+        }
+    </style>
+</head>
+<body>
+    <h1>Wildfire Risk Prediction API Test</h1>
+    
+    <div class="form-group">
+        <label for="latitude">Latitude:</label>
+        <input type="number" id="latitude" value="34.05" step="0.0001">
+    </div>
+    
+    <div class="form-group">
+        <label for="longitude">Longitude:</label>
+        <input type="number" id="longitude" value="-118.24" step="0.0001">
+    </div>
+    
+    <div class="form-group">
+        <label for="temperature">Temperature (°C):</label>
+        <input type="number" id="temperature" value="30.5" step="0.1">
+    </div>
+    
+    <div class="form-group">
+        <label for="humidity">Humidity (%):</label>
+        <input type="number" id="humidity" value="40" step="1">
+    </div>
+    
+    <div class="form-group">
+        <label for="windSpeed">Wind Speed (km/h):</label>
+        <input type="number" id="windSpeed" value="15" step="0.1">
+    </div>
+    
+    <div class="form-group">
+        <label for="precipitation">Precipitation (mm):</label>
+        <input type="number" id="precipitation" value="0" step="0.1">
+    </div>
+    
+    <div class="form-group">
+        <label for="vegetation">Vegetation Density (0-1):</label>
+        <input type="number" id="vegetation" value="0.6" min="0" max="1" step="0.01">
+    </div>
+    
+    <button onclick="testAPI()">Test API</button>
+    
+    <div id="result">Results will appear here...</div>
+    
+    <script>
+        async function testAPI() {
+            const result = document.getElementById('result');
+            result.textContent = 'Sending request...';
+            
+            const data = {
+                latitude: parseFloat(document.getElementById('latitude').value),
+                longitude: parseFloat(document.getElementById('longitude').value),
+                temperature: parseFloat(document.getElementById('temperature').value),
+                humidity: parseFloat(document.getElementById('humidity').value),
+                wind_speed: parseFloat(document.getElementById('windSpeed').value),
+                precipitation: parseFloat(document.getElementById('precipitation').value),
+                vegetation_density: parseFloat(document.getElementById('vegetation').value)
+            };
+            
+            try {
+                const response = await axios.post('http://localhost:8000/api/predict', data);
+                
+                // Show the full response
+                result.textContent = JSON.stringify(response.data, null, 2);
+                
+                // Change color based on risk level
+                if (response.data.risk_level === 'High' || response.data.risk_level === 'Extreme') {
+                    result.style.backgroundColor = '#ffcccc';
+                } else if (response.data.risk_level === 'Moderate') {
+                    result.style.backgroundColor = '#ffffcc';
+                } else {
+                    result.style.backgroundColor = '#ccffcc';
+                }
+            } catch (error) {
+                result.textContent = 'Error: ' + (error.response ? 
+                    JSON.stringify(error.response.data, null, 2) : 
+                    error.message);
+                result.style.backgroundColor = '#ffcccc';
+            }
+        }
+    </script>
+</body>
+</html>

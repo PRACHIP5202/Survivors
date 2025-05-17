@@ -33,17 +33,19 @@ export default function PredictionPanel({ weatherData, onPredict }) {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     // Set loading state
     setIsLoading(true);
     
-    // Simulate API delay for demonstration purposes
-    setTimeout(() => {
-      // Call the prediction handler
-      onPredict(inputs);
+    try {
+      // Call the prediction handler (now async)
+      await onPredict(inputs);
+    } catch (error) {
+      console.error("Error in prediction:", error);
+    } finally {
       setIsLoading(false);
-    }, 1500);
+    }
   };
 
   const vegetationOptions = [

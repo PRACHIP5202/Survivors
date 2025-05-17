@@ -16,14 +16,14 @@ export default function ContactPage() {
             <div className="info-icon">💼</div>
             <h3>Business Inquiries</h3>
             <p>For partnerships and business opportunities</p>
-            <a href="mailto:business@fireguard-ai.com">business@fireguard-ai.com</a>
+            <a href="mailto:business@embereye.com">business@embereye.com</a>
           </div>
           
           <div className="info-card">
             <div className="info-icon">🔧</div>
             <h3>Technical Support</h3>
             <p>For help with our platform and tools</p>
-            <a href="mailto:support@fireguard-ai.com">support@fireguard-ai.com</a>
+            <a href="mailto:support@embereye.com">support@embereye.com</a>
           </div>
           
           <div className="info-card">

@@ -15,7 +15,7 @@ export default function HowItWorksPage() {
         <div className="technology-section">
           <h2>Our Technology</h2>
           <p>
-            FireGuard AI integrates multiple data sources including satellite imagery, weather forecasts, 
+            EmberEye integrates multiple data sources including satellite imagery, weather forecasts, 
             vegetation density maps, and historical fire data to create accurate wildfire risk predictions.
             Our machine learning algorithms continuously improve by learning from new data and actual fire events.
           </p>

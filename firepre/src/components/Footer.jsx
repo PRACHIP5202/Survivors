@@ -9,7 +9,7 @@ export default function Footer() {
         <div className="footer-section">
           <Link to="/" className="footer-logo">
             <span className="fire-icon">🔥</span>
-            <span className="logo-text">FireGuard AI</span>
+            <span className="logo-text">EmberEye</span>
           </Link>
           <p className="footer-description">
             AI-powered wildfire risk predictions to keep communities and nature safe.
@@ -56,7 +56,7 @@ export default function Footer() {
       
       <div className="footer-bottom">
         <div className="container">
-          <p className="copyright">© {currentYear} FireGuard AI. All rights reserved.</p>
+          <p className="copyright">© {currentYear} EmberEye. All rights reserved.</p>
         </div>
       </div>
     </footer>
