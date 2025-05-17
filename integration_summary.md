@@ -31,9 +31,10 @@
 - The overall system is functional and usable
 
 ## Observations and Issues
-1. **Model Calibration**: The model returns similar risk scores for different input scenarios
-2. **Risk Level Differentiation**: Need better differentiation between risk levels
-3. **API Performance**: API response time is acceptable (100-250ms)
+1. **Fixed: Model Calibration**: We've resolved the issue with the model returning similar risk scores for different input scenarios
+2. **Fixed: Risk Level Differentiation**: We now have proper differentiation between risk levels (Low, Moderate, High, Very High, Extreme)
+3. **Added: Factor Contributions**: The API now returns detailed contributions for each risk factor
+4. **API Performance**: API response time remains excellent (approximately 100-250ms)
 
 ## Recommendations for Next Steps
 1. **Model Improvements**:

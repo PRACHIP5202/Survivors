@@ -1,26 +1,35 @@
 import PropTypes from 'prop-types';
 import { motion } from 'framer-motion';
+import './RiskFactors.css';
 
 export default function RiskLevelCard({ riskResult }) {
   if (!riskResult) return null;
 
-  const { percentage, level } = riskResult;
+  const { percentage, level, recommendations, factorContributions = {}, modelInfo = {} } = riskResult;
   
   const getRiskColor = () => {
+    if (level === 'Extreme') return '#FF0000'; // bright red
+    if (level === 'Very High') return '#FF4500'; // orange red
     if (level === 'High') return 'var(--high-risk)';
-    if (level === 'Medium') return 'var(--medium-risk)';
+    if (level === 'Moderate') return 'var(--medium-risk)';
     return 'var(--low-risk)';
   };
 
+  // Use API recommendations if available, otherwise fallback to default recommendations
   const getRecommendations = () => {
-    if (level === 'High') {
+    if (recommendations && recommendations.length > 0) {
+      return recommendations;
+    }
+    
+    // Fallback recommendations
+    if (level === 'High' || level === 'Very High' || level === 'Extreme') {
       return [
         'Evacuate if authorities advise',
         'Create a defensible space around your property',
         'Keep emergency supplies readily accessible',
         'Stay informed with local alerts and news'
       ];
-    } else if (level === 'Medium') {
+    } else if (level === 'Moderate') {
       return [
         'Prepare an evacuation plan',
         'Clear debris from gutters and roof',
@@ -66,6 +75,31 @@ export default function RiskLevelCard({ riskResult }) {
         </div>
       </div>
       
+      {Object.keys(factorContributions).length > 0 && (
+        <div className="risk-factors">
+          <h4 className="factors-title">Risk Factor Contributions:</h4>
+          <div className="factor-bars">
+            {Object.entries(factorContributions).map(([factor, contribution]) => (
+              <div key={factor} className="factor-bar-container">
+                <div className="factor-name">
+                  {factor.replace('_', ' ').replace(/^\w/, c => c.toUpperCase())}
+                </div>
+                <div className="factor-bar-wrapper">
+                  <div 
+                    className="factor-bar" 
+                    style={{ 
+                      width: `${contribution}%`,
+                      backgroundColor: getRiskColor()
+                    }}
+                  ></div>
+                </div>
+                <div className="factor-value">{contribution}%</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+      
       <div className="risk-recommendations">
         <h4 className="recommendations-title">Recommended Actions:</h4>
         <ul className="recommendations-list">
@@ -83,6 +117,11 @@ export default function RiskLevelCard({ riskResult }) {
         </button>
         <p className="risk-disclaimer">
           Based on current conditions. Monitor local authorities for official guidance.
+          {modelInfo.source && (
+            <span className="model-source">
+              {' '}Prediction by: {modelInfo.source === 'cnn_model' ? 'AI model' : 'Estimation algorithm'}
+            </span>
+          )}
         </p>
       </div>
     </motion.div>
@@ -93,5 +132,10 @@ RiskLevelCard.propTypes = {
   riskResult: PropTypes.shape({
     percentage: PropTypes.number.isRequired,
     level: PropTypes.string.isRequired,
+    recommendations: PropTypes.arrayOf(PropTypes.string),
+    factorContributions: PropTypes.object,
+    factors: PropTypes.object,
+    modelInfo: PropTypes.object,
+    confidence: PropTypes.number
   }),
 };

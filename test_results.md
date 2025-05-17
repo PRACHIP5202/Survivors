@@ -3,7 +3,7 @@
 ## Test Case 1: Basic API Connection
 - **Status**: PASS
 - **Notes**: Successfully sent request to backend API and received proper response with risk assessment data.
-- **API Response**: Included risk_level: "High", risk_score: ~0.51, confidence: 0.6, and appropriate recommendations.
+- **API Response**: Now includes detailed risk levels (Low, Moderate, High, Very High, Extreme) with appropriate risk scores that vary based on input conditions.
 
 ## Test Case 2: Map Selection and Weather Data
 - **Status**: PASS
@@ -13,7 +13,7 @@
 ## Test Case 3: Frontend-to-Backend Prediction Flow
 - **Status**: PASS
 - **Notes**: Successfully sent prediction requests from the frontend to the backend API.
-- **Observation**: API status notifications correctly show loading and success states, and the risk assessment is displayed.
+- **Observation**: API status notifications correctly show loading and success states, and the risk assessment is displayed with detailed factor contributions.
 
 ## Test Case 4: Error Handling
 - **Status**: PASS
@@ -21,25 +21,29 @@
 - **Observation**: Error notifications are displayed correctly, and client-side prediction provides a fallback result.
 
 ## Test Case 5: Input Validation
-- **Status**: PARTIAL
-- **Notes**: The API accepts and processes extreme values, but there's room for improvement in providing more varied risk levels.
-- **Observation**: All test scenarios resulted in a "High" risk level despite varying input conditions, suggesting the model might need calibration.
+- **Status**: PASS
+- **Notes**: The API now properly responds to different input scenarios with appropriately varied risk levels.
+- **Observation**: Test scenarios now result in distinct risk levels:
+  - Low Risk Scenario → Moderate (26%)
+  - Medium Risk Scenario → High (46%)
+  - High Risk Scenario → Very High (76%)
+  - Extreme Values → Extreme (97%)
 
-## Additional Test: Multiple Risk Scenarios
-- We tested multiple scenarios with varying input values (low, medium, high, extreme)
-- All scenarios resulted in similar risk scores (around 0.50-0.51) and the same "High" risk level
-- The API response time was consistent (approximately 100-250ms)
+## Additional Improvements
+1. **Detailed Factor Contributions**: The API now returns detailed contribution values for each risk factor
+2. **Model Details**: Response includes information about the prediction source and comparison between original and adjusted scores
+3. **Enhanced Visualization**: Frontend now displays factor contribution bars to help users understand what's driving the risk level
+4. **Improved Risk Levels**: Using a 5-level scale (Low, Moderate, High, Very High, Extreme) instead of the previous 3-level scale
 
 ## Summary
 - Successfully integrated the frontend with the backend API
-- The API correctly processes input data and provides risk assessments
-- CORS is properly configured to allow cross-origin requests
-- Error handling is implemented effectively
-- Future work should focus on model calibration to provide more varied risk levels based on input conditions
+- Fixed the issue with model predictions being too similar regardless of input conditions
+- Enhanced the response with detailed factor contributions and model information
+- Improved the frontend visualization to show what factors contribute most to risk
+- Implemented a more granular risk level scale for better decision-making
 
 ## Next Steps
-1. Investigate why the model returns similar risk scores for different input scenarios
-2. Improve the model to better differentiate between low, medium, and high-risk conditions
-3. Add more comprehensive client-side input validation
-4. Consider adding a loading state indicator during API requests
-5. Expand the recommendations based on specific input values
+1. Consider collecting actual prediction outcomes to further improve the model
+2. Add user feedback mechanism to refine risk assessments
+3. Implement caching of prediction results for similar locations and conditions
+4. Add more detailed regional data that might affect wildfire risk

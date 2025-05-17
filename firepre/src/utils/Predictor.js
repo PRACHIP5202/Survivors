@@ -70,12 +70,27 @@ export async function predictRisk({
     // Convert the risk_score from 0-1 to 0-100 percentage
     const percentage = Math.round(risk_score * 100);
     
+    // Prepare factor contributions for visualization
+    const factorContributions = {};
+    if (factors) {
+      Object.keys(factors).forEach(key => {
+        if (factors[key].hasOwnProperty('contribution')) {
+          factorContributions[key] = Math.round(factors[key].contribution * 100);
+        }
+      });
+    }
+    
+    // Get model details if available
+    const modelInfo = response.data.model_details || {};
+    
     return {
       percentage,
       level: risk_level,
       confidence: Math.round(confidence * 100),
       factors,
-      recommendations
+      factorContributions,
+      recommendations,
+      modelInfo
     };
   } catch (error) {
     console.error('Error fetching prediction from API:', error);

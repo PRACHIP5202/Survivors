@@ -1,0 +1,61 @@
+/* Factor Contributions Styling */
+.risk-factors {
+  margin-top: 1.5rem;
+  padding: 1rem;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+}
+
+.factors-title {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.factor-bars {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.factor-bar-container {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.factor-name {
+  width: 110px;
+  font-size: 0.875rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.factor-bar-wrapper {
+  flex: 1;
+  background-color: #e0e0e0;
+  height: 12px;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.factor-bar {
+  height: 100%;
+  border-radius: 6px;
+  transition: width 0.6s ease-out;
+}
+
+.factor-value {
+  width: 40px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-align: right;
+}
+
+.model-source {
+  font-style: italic;
+  font-size: 0.8rem;
+  color: #666;
+}

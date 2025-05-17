@@ -28,6 +28,7 @@ class PredictionResponse(BaseModel):
     confidence: float
     factors: Dict[str, Any]
     recommendations: List[str]
+    model_details: Optional[Dict[str, Any]] = None
 
 @router.post("/predict", response_model=PredictionResponse)
 async def predict_wildfire_risk(request: PredictionRequest):
