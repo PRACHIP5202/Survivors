@@ -23,7 +23,7 @@ export default function Navbar() {
       <div className="container navbar-container">
         <Link to="/" className="navbar-logo">
           <span className="fire-icon">🔥</span>
-          <span className="logo-text">FireGuard AI</span>
+          <span className="logo-text">EmberEye</span>
         </Link>
 
         {/* Desktop Navigation */}
