@@ -5,12 +5,20 @@ const API_BASE_URL = 'http://localhost:8000/api';
 
 // Client-side prediction as a fallback
 export function clientPredictRisk({ temperature, humidity, windSpeed, vegetation }) {
+  // Make sure all inputs are valid numbers
+  const temp = parseFloat(temperature) || 0;
+  const humid = parseFloat(humidity) || 0;
+  const wind = parseFloat(windSpeed) || 0;
+  const veg = parseFloat(vegetation) || 0;
+  
+  console.log("Client prediction using values:", { temp, humid, wind, veg });
+  
   let score = 0;
 
-  if (temperature > 35) score += 30;
-  if (humidity < 30) score += 20;
-  if (windSpeed > 15) score += 30;
-  if (vegetation > 70) score += 20;
+  if (temp > 35) score += 30;
+  if (humid < 30) score += 20;
+  if (wind > 15) score += 30;
+  if (veg > 70) score += 20;
 
   const percentage = Math.min(score, 100);
 
@@ -68,7 +76,16 @@ export async function predictRisk({
     const { risk_level, risk_score, confidence, factors, recommendations } = response.data;
     
     // Convert the risk_score from 0-1 to 0-100 percentage
-    const percentage = Math.round(risk_score * 100);
+    // Make sure risk_score is a valid number before multiplying
+    const riskScoreValue = parseFloat(risk_score);
+    const percentage = !isNaN(riskScoreValue) ? Math.round(riskScoreValue * 100) : 0;
+    
+    // Log the risk score calculation for debugging
+    console.log("Risk score calculation:", { 
+      original: risk_score, 
+      parsed: riskScoreValue, 
+      percentage: percentage 
+    });
     
     // Prepare factor contributions for visualization
     const factorContributions = {};
@@ -94,7 +111,15 @@ export async function predictRisk({
     };
   } catch (error) {
     console.error('Error fetching prediction from API:', error);
-    console.log('Falling back to client-side prediction...');
+    console.log('Falling back to client-side prediction...', { temperature, humidity, windSpeed, vegetation });
+    
+    // Log the input values for debugging
+    console.log("Input values for fallback:", {
+      temperature: typeof temperature + " - " + temperature,
+      humidity: typeof humidity + " - " + humidity,
+      windSpeed: typeof windSpeed + " - " + windSpeed,
+      vegetation: typeof vegetation + " - " + vegetation
+    });
     
     // Fallback to client-side prediction if API call fails
     return clientPredictRisk({ temperature, humidity, windSpeed, vegetation });
