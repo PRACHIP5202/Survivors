@@ -154,7 +154,7 @@ export default function MapView({ onLocationChange }) {
   };
 
   return (
-    <div style={{ height: '500px', width: '100%', borderRadius: '10px', overflow: 'hidden', boxShadow: '0 2px 8px rgba(0,0,0,0.15)', position: 'relative' }}>
+    <div style={{ height: '600px', width: '100%', borderRadius: '10px', overflow: 'hidden', boxShadow: '0 2px 8px rgba(0,0,0,0.15)', position: 'relative' }}>
       <MapContainer
         center={[location.lat, location.lng]}
         zoom={5}

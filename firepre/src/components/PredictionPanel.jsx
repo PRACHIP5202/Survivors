@@ -19,17 +19,40 @@ export default function PredictionPanel({ weatherData, onPredict }) {
     if (weatherData) {
       setInputs((prev) => ({
         ...prev,
-        temperature: weatherData.temperature || '',
-        humidity: weatherData.humidity || '',
-        windSpeed: weatherData.windSpeed || '',
+        temperature: weatherData.temperature ? parseFloat(weatherData.temperature).toFixed(1) : '',
+        humidity: weatherData.humidity ? Math.round(weatherData.humidity) : '',
+        windSpeed: weatherData.windSpeed ? parseFloat(weatherData.windSpeed).toFixed(1) : '',
       }));
     }
   }, [weatherData]);
 
   const handleChange = (e) => {
+    let value = e.target.value;
+    
+    // Format numeric inputs to have only one decimal place
+    if (e.target.type === 'number' && value !== '') {
+      if (e.target.name === 'temperature' || e.target.name === 'windSpeed') {
+        // Allow typing a decimal point without immediately formatting
+        if (value.endsWith('.')) {
+          // Do nothing, keep the decimal point
+        } else {
+          const parsed = parseFloat(value);
+          if (!isNaN(parsed)) {
+            value = parsed.toFixed(1);
+          }
+        }
+      } else if (e.target.name === 'humidity') {
+        // Round humidity to whole numbers
+        const parsed = parseFloat(value);
+        if (!isNaN(parsed)) {
+          value = Math.round(parsed);
+        }
+      }
+    }
+
     setInputs({
       ...inputs,
-      [e.target.name]: e.target.value,
+      [e.target.name]: value,
     });
   };
 

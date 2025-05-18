@@ -42,15 +42,19 @@ export async function predictRisk({
   droughtIndex = null
 }) {
   try {
+    // Ensure temperature and windSpeed have only one decimal place
+    const formattedTemperature = parseFloat(parseFloat(temperature).toFixed(1));
+    const formattedWindSpeed = parseFloat(parseFloat(windSpeed).toFixed(1));
+    
     // Log API request for debugging
     console.log("Sending API request to backend:", {
       url: `${API_BASE_URL}/predict`,
       data: {
         latitude,
         longitude,
-        temperature,
+        temperature: formattedTemperature,
         humidity,
-        wind_speed: windSpeed,
+        wind_speed: formattedWindSpeed,
         precipitation,
         vegetation_density: vegetation / 100,
         elevation,
@@ -61,9 +65,9 @@ export async function predictRisk({
     const response = await axios.post(`${API_BASE_URL}/predict`, {
       latitude,
       longitude,
-      temperature,
+      temperature: formattedTemperature,
       humidity,
-      wind_speed: windSpeed,
+      wind_speed: formattedWindSpeed,
       precipitation,
       vegetation_density: vegetation / 100, // Convert from percentage (0-100) to decimal (0-1)
       elevation,

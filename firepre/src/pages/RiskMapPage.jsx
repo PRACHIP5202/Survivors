@@ -78,7 +78,7 @@ export default function RiskMapPage() {
           </p>
         </div>
 
-        <div className="risk-map-content">
+        <div className="risk-map-content-vertical">
           <div className="map-container">
             <MapView onLocationChange={handleLocationChange} />
             <div className="map-overlay">
@@ -100,7 +100,7 @@ export default function RiskMapPage() {
             </div>
           </div>
 
-          <div className="sidebar-container">
+          <div className="assessment-container">
             {selectedLocation && (
               <div className="location-info">
                 <h3 className="location-title">Selected Location</h3>
@@ -110,11 +110,14 @@ export default function RiskMapPage() {
               </div>
             )}
 
-            {weather && <WeatherInfo weatherData={weather} />}
-
-            <PredictionPanel weatherData={weather} onPredict={handlePrediction} />
-
-            {riskResult && <RiskLevelCard riskResult={riskResult} />}
+            <div className="assessment-flow">
+              {weather && <WeatherInfo weatherData={weather} />}
+              
+              <div className="prediction-section">
+                <PredictionPanel weatherData={weather} onPredict={handlePrediction} />
+                {riskResult && <RiskLevelCard riskResult={riskResult} />}
+              </div>
+            </div>
           </div>
         </div>
       </div>

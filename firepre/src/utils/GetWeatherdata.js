@@ -20,9 +20,9 @@ export async function getWeatherData(lat, lon) {
     const wind = response.data.wind.speed;
 
     return {
-      temperature: temp,
-      humidity,
-      windSpeed: wind,
+      temperature: parseFloat(temp.toFixed(1)),
+      humidity: Math.round(humidity),
+      windSpeed: parseFloat(wind.toFixed(1)),
     };
   } catch (error) {
     console.error('Error fetching weather data:', error);

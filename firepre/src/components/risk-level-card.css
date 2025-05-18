@@ -1,0 +1,43 @@
+/* Risk Level Card */
+.risk-level-card {
+  background-color: white;
+  padding: 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  margin-top: 1.5rem;
+  border-left: 4px solid var(--high-risk);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.risk-low {
+  border-left-color: var(--low-risk);
+}
+
+.risk-medium, .risk-moderate {
+  border-left-color: var(--medium-risk);
+}
+
+.risk-high, .risk-very-high, .risk-extreme {
+  border-left-color: var(--high-risk);
+}
+
+.risk-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.risk-title {
+  margin: 0;
+  font-size: 1.25rem;
+}
+
+.risk-badge {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  color: white;
+  font-size: 0.875rem;
+  font-weight: 600;
+}
