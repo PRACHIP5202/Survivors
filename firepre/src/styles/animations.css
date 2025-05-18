@@ -1,0 +1,84 @@
+/* Enhanced animations and transitions for a more polished UI */
+
+/* Smooth page transitions */
+.app {
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Subtle hover animations for interactive elements */
+.nav-link, 
+.footer-link,
+.resource-card,
+.step-card,
+.benefit-card {
+  transition: all 0.3s ease;
+}
+
+/* Enhance card hover effects */
+.card:hover,
+.prediction-panel:hover,
+.weather-info-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+/* Dark mode card hover */
+[data-theme='dark'] .card:hover,
+[data-theme='dark'] .prediction-panel:hover,
+[data-theme='dark'] .weather-info-card:hover {
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+}
+
+/* Improve button press effect */
+button:active,
+.cta-button:active,
+.hero-cta:active,
+.submit-button:active,
+.form-button:active {
+  transform: scale(0.98);
+}
+
+/* Enhance loading state for buttons */
+.loading {
+  position: relative;
+  pointer-events: none;
+}
+
+.loading::after {
+  content: "";
+  position: absolute;
+  width: 1em;
+  height: 1em;
+  top: 50%;
+  right: 1rem;
+  margin-top: -0.5em;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  border-top-color: white;
+  border-radius: 50%;
+  animation: spinner 0.6s linear infinite;
+}
+
+@keyframes spinner {
+  to { transform: rotate(360deg); }
+}
+
+/* Add subtle pulse to warning elements */
+.high-risk, .risk-badge.high, .risk-badge.very-high, .risk-badge.extreme {
+  animation: subtle-pulse 3s infinite;
+}
+
+@keyframes subtle-pulse {
+  0% { opacity: 1; }
+  50% { opacity: 0.9; }
+  100% { opacity: 1; }
+}
+
+/* Enhance transitions in dark mode */
+[data-theme='dark'] * {
+  transition: all 0.3s ease;
+}

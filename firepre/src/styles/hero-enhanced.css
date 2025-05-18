@@ -1,0 +1,64 @@
+/* Hero section enhancements for readability and aesthetics */
+.hero-title {
+  font-size: 3.5rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+  color: white;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6); /* Enhanced shadow for readability */
+  letter-spacing: -0.5px; /* Tighter letter spacing for aesthetic headlines */
+  line-height: 1.1; /* Tighter line height */
+}
+
+.hero-subtitle {
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+  color: rgba(255, 255, 255, 0.95); /* Slightly brighter text */
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4); /* Enhanced shadow */
+  font-weight: 400;
+  line-height: 1.4;
+  max-width: 90%; /* Constrain width for better readability */
+}
+
+.hero-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: var(--burnt-orange);
+  color: white;
+  padding: 1rem 2rem;
+  border-radius: 8px; /* More rounded corners */
+  font-weight: 600;
+  font-size: 1.125rem;
+  letter-spacing: 0.4px; /* Better letter spacing */
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25); /* Deeper shadow for prominence */
+}
+
+.hero-cta:hover {
+  background-color: var(--forest-green); /* Change color on hover for interactive feel */
+  transform: translateY(-3px); /* Slightly more lift on hover */
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3); /* Enhanced shadow on hover */
+}
+
+/* Dark mode specific styles for better contrast */
+[data-theme='dark'] .hero-title {
+  color: #ffffff; /* Pure white for maximum contrast */
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7); /* Stronger shadow in dark mode */
+}
+
+[data-theme='dark'] .hero-subtitle {
+  color: #f0f0f0; /* Very light gray for better readability */
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5); /* Stronger shadow */
+}
+
+[data-theme='dark'] .hero-cta {
+  background-color: var(--forest-green);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4); /* Stronger shadow in dark mode */
+}
+
+[data-theme='dark'] .hero-cta:hover {
+  background-color: var(--burnt-orange);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.5); /* Enhanced shadow on hover */
+}

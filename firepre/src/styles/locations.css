@@ -1,0 +1,47 @@
+.location-name {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--forest-green);
+  margin-bottom: 0.5rem;
+  display: block;
+  letter-spacing: 0.2px; /* Improve readability */
+}
+
+.location-coordinates {
+  font-size: 0.9rem;
+  color: var(--text-color);
+  margin-top: 0.25rem;
+  font-family: monospace; /* Better for displaying coordinates */
+  letter-spacing: 0.3px;
+}
+
+[data-theme='dark'] .location-name {
+  color: var(--forest-green-light);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2); /* Subtle text shadow for better contrast */
+}
+
+[data-theme='dark'] .location-info {
+  background-color: var(--card-bg);
+  border: 1px solid var(--card-border);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); /* Deeper shadow for depth */
+  border-radius: 8px; /* Ensure rounded corners */
+  padding: 1rem 1.25rem; /* Slightly more padding */
+}
+
+[data-theme='dark'] .location-title {
+  color: var(--header-color);
+  margin-bottom: 10px;
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+/* Add light mode specific styles for consistency */
+.location-info {
+  background-color: var(--card-bg);
+  border: 1px solid var(--card-border);
+  box-shadow: 0 4px 8px var(--shadow-color);
+  border-radius: 8px;
+  padding: 1rem 1.25rem;
+  margin-bottom: 1.5rem;
+  transition: all 0.3s ease;
+}

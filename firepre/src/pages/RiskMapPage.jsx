@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import MapView from '../components/MapView';
 import PredictionPanel from '../components/PredictionPanel';
 import RiskLevelCard from '../components/RiskLevelCard';
@@ -6,17 +6,31 @@ import WeatherInfo from '../components/WeatherInfo';
 import ApiStatus from '../components/ApiStatus';
 import { getWeatherData } from '../utils/GetWeatherdata';
 import { predictRisk } from '../utils/Predictor';
+import { getLocationName } from '../utils/GeocodingService';
+import { useTheme } from '../contexts/ThemeContext';
+import '../styles/locations.css';
 
 export default function RiskMapPage() {
   const [weather, setWeather] = useState(null);
   const [riskResult, setRiskResult] = useState(null);
   const [selectedLocation, setSelectedLocation] = useState(null);
+  const [locationName, setLocationName] = useState('');
   const [apiStatus, setApiStatus] = useState({ status: '', message: '' });
+  const { darkMode } = useTheme();
 
   const handleLocationChange = async ({ lat, lng }) => {
     setSelectedLocation({ lat, lng });
     const data = await getWeatherData(lat, lng);
     setWeather(data);
+    
+    // Get location name based on coordinates
+    try {
+      const name = await getLocationName(lat, lng);
+      setLocationName(name);
+    } catch (error) {
+      console.error("Error getting location name:", error);
+      setLocationName('Unknown location');
+    }
   };
 
   const handlePrediction = async (inputs) => {
@@ -67,7 +81,7 @@ export default function RiskMapPage() {
   };
 
   return (
-    <div className="risk-map-page">
+    <div className={`risk-map-page ${darkMode ? 'risk-map-dark' : ''}`}>
       <ApiStatus status={apiStatus.status} message={apiStatus.message} />
       <div className="container">
         <div className="page-header">
@@ -104,6 +118,7 @@ export default function RiskMapPage() {
             {selectedLocation && (
               <div className="location-info">
                 <h3 className="location-title">Selected Location</h3>
+                <span className="location-name">{locationName}</span>
                 <p className="location-coordinates">
                   Lat: {selectedLocation.lat.toFixed(6)}, Lng: {selectedLocation.lng.toFixed(6)}
                 </p>

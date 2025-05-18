@@ -1,0 +1,192 @@
+/* Enhanced Risk Level Card Styling */
+
+/* Base card styling */
+.risk-level-card {
+  background-color: white;
+  padding: 1.5rem;
+  border-radius: 12px; /* More rounded corners */
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08); /* Enhanced shadow for depth */
+  margin-top: 1.5rem;
+  border-left: 5px solid var(--high-risk); /* Slightly thicker accent border */
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Enhanced risk level indicators */
+.risk-level-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 90px;
+  height: 90px;
+  background-color: rgba(244, 67, 54, 0.05); /* Very subtle background highlight */
+  border-radius: 0 0 0 90px;
+  z-index: 0;
+  transition: all 0.3s ease;
+}
+
+.risk-low::before {
+  background-color: rgba(76, 175, 80, 0.05);
+}
+
+.risk-medium::before,
+.risk-moderate::before {
+  background-color: rgba(255, 152, 0, 0.05);
+}
+
+.risk-high::before,
+.risk-very-high::before,
+.risk-extreme::before {
+  background-color: rgba(244, 67, 54, 0.05);
+}
+
+/* Risk Level-specific styling */
+.risk-low {
+  border-left-color: var(--low-risk);
+}
+
+.risk-medium, .risk-moderate {
+  border-left-color: var(--medium-risk);
+}
+
+.risk-high, .risk-very-high, .risk-extreme {
+  border-left-color: var(--high-risk);
+}
+
+/* Card header with better spacing */
+.risk-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  position: relative;
+  z-index: 1;
+}
+
+.risk-title {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 600;
+  letter-spacing: 0.2px;
+}
+
+/* Enhanced risk badge styling */
+.risk-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.35rem 1rem; /* More horizontal padding */
+  border-radius: 20px;
+  color: white;
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0.5px; /* Better letter spacing for readability */
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2); /* Subtle shadow for better contrast */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15); /* Slight shadow for depth */
+}
+
+/* Risk-specific badge colors */
+.risk-badge.low {
+  background-color: var(--low-risk);
+  color: #000; /* Dark text on light background */
+}
+
+.risk-badge.moderate {
+  background-color: var(--medium-risk);
+  color: #000; /* Dark text on light background */
+}
+
+.risk-badge.high, 
+.risk-badge.very-high, 
+.risk-badge.extreme {
+  background-color: var(--high-risk);
+  color: #fff; /* White text on dark background */
+}
+
+/* Enhance the percentage display */
+.risk-percentage {
+  font-size: 1.75rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: var(--charcoal-grey);
+}
+
+/* Improve recommendations list */
+.risk-recommendations {
+  margin-top: 1.5rem;
+  padding-left: 1.25rem;
+  position: relative;
+  z-index: 1;
+}
+
+.risk-recommendations li {
+  margin-bottom: 0.75rem;
+  position: relative;
+  padding-left: 0.5rem;
+  line-height: 1.5;
+}
+
+.risk-recommendations li::marker {
+  color: var(--burnt-orange);
+  font-weight: bold;
+}
+
+/* Dark mode enhancements */
+[data-theme='dark'] .risk-level-card {
+  background-color: var(--card-bg);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+[data-theme='dark'] .risk-level-card::before {
+  opacity: 0.1; /* More visible in dark mode */
+}
+
+[data-theme='dark'] .risk-low::before {
+  background-color: rgba(92, 223, 96, 0.1);
+}
+
+[data-theme='dark'] .risk-medium::before,
+[data-theme='dark'] .risk-moderate::before {
+  background-color: rgba(255, 183, 77, 0.1);
+}
+
+[data-theme='dark'] .risk-high::before,
+[data-theme='dark'] .risk-very-high::before,
+[data-theme='dark'] .risk-extreme::before {
+  background-color: rgba(255, 82, 82, 0.1);
+}
+
+[data-theme='dark'] .risk-title {
+  color: var(--header-color);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+[data-theme='dark'] .risk-percentage {
+  color: var(--header-color);
+}
+
+[data-theme='dark'] .risk-recommendations li {
+  color: var(--text-color);
+}
+
+[data-theme='dark'] .risk-badge {
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+}
+
+/* Special styling for extreme risk */
+.risk-extreme {
+  border-left-color: #FF1744; /* Brighter red for extreme risk */
+}
+
+.risk-badge.extreme {
+  background-color: #FF1744; /* Brighter red for extreme */
+  animation: pulse 2s infinite; /* Subtle pulsing animation for extreme risk */
+}
+
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 rgba(255, 23, 68, 0.4); }
+  70% { box-shadow: 0 0 0 6px rgba(255, 23, 68, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(255, 23, 68, 0); }
+}

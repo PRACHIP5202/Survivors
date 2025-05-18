@@ -1,0 +1,95 @@
+.dark-mode-toggle {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  width: 44px;  /* Slightly larger */
+  height: 26px;  /* Slightly larger */
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  outline: none;
+  margin-left: 15px;
+  transition: transform 0.2s ease;
+}
+
+.dark-mode-toggle:hover {
+  transform: scale(1.05);  /* Subtle zoom on hover */
+}
+
+.toggle-switch {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+.toggle-track {
+  position: relative;
+  width: 44px;  /* Slightly larger */
+  height: 22px;  /* Slightly larger */
+  border-radius: 11px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+.toggle-track.light {
+  background-color: #e4e6eb;
+  border: 1px solid #ccd0d5;
+}
+
+.toggle-track.dark {
+  background-color: #3a3b3c;
+  border: 1px solid #4e4f50;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2); /* Enhanced shadow for dark mode */
+}
+
+.toggle-indicator {
+  position: absolute;
+  width: 18px; /* Slightly larger */
+  height: 18px; /* Slightly larger */
+  border-radius: 50%;
+  top: 50%;
+  transition: transform 0.3s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2); /* Enhanced shadow */
+}
+
+.toggle-track.light .toggle-indicator {
+  background-color: #ffffff;
+  transform: translateY(-50%) translateX(2px);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+}
+
+.toggle-track.dark .toggle-indicator {
+  background-color: #2a2a2a;
+  transform: translateY(-50%) translateX(24px); /* Adjusted for larger track */
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.35);
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .dark-mode-toggle {
+    width: 36px;
+    height: 22px;
+  }
+  
+  .toggle-track {
+    width: 36px;
+    height: 18px;
+  }
+  
+  .toggle-track.light .toggle-indicator {
+    transform: translateY(-50%) translateX(2px);
+  }
+  
+  .toggle-track.dark .toggle-indicator {
+    transform: translateY(-50%) translateX(20px);
+  }
+}

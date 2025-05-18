@@ -23,9 +23,16 @@ export default function ApiStatus({ status, message }) {
     error: 'api-status-error',
     loading: 'api-status-loading'
   };
+  
+  const statusIcons = {
+    success: '✓',
+    error: '✕',
+    loading: '⟳'
+  };
 
   return (
     <div className={`api-status ${statusClasses[status]}`}>
+      {statusIcons[status] && <span className="status-icon">{statusIcons[status]}</span>}
       {message}
     </div>
   );
