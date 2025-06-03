@@ -3,14 +3,14 @@
   position: relative;
   border-radius: 12px; /* More rounded corners */
   overflow: hidden;
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12); /* Enhanced shadow for depth */
-  border: 1px solid rgba(0, 0, 0, 0.05); /* Subtle border */
+  box-shadow: 0 6px 18px rgb(0 0 0 / 12%); /* Enhanced shadow for depth */
+  border: 1px solid rgb(0 0 0 / 5%); /* Subtle border */
   transition: all 0.3s ease;
 }
 
 /* Add subtle hover effect */
 .map-container:hover {
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 8px 24px rgb(0 0 0 / 15%);
   transform: translateY(-2px);
 }
 
@@ -19,13 +19,13 @@
   position: absolute;
   bottom: 20px;
   right: 20px;
-  background-color: rgba(255, 255, 255, 0.92); /* Slightly transparent */
+  background-color: rgb(255 255 255 / 92%); /* Slightly transparent */
   padding: 1.1rem;
   border-radius: 10px;
-  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.18);
+  box-shadow: 0 3px 10px rgb(0 0 0 / 18%);
   z-index: 1000;
   backdrop-filter: blur(5px); /* Subtle blur effect for modern look */
-  border: 1px solid rgba(0, 0, 0, 0.08);
+  border: 1px solid rgb(0 0 0 / 8%);
   transition: all 0.3s ease;
 }
 
@@ -34,6 +34,6 @@
   height: 18px;
   margin-right: 10px;
   border-radius: 4px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 1px 3px rgb(0 0 0 / 10%);
 }
 

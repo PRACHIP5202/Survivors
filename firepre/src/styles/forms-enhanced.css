@@ -22,7 +22,7 @@
   font-family: inherit;
   font-size: 1rem;
   transition: all 0.2s ease;
-  background-color: #ffffff;
+  background-color: #fff;
   color: var(--charcoal-grey);
 }
 
@@ -30,7 +30,7 @@
 .form-group select:focus,
 .form-group textarea:focus {
   border-color: var(--forest-green);
-  box-shadow: 0 0 0 3px rgba(45, 106, 79, 0.15);
+  box-shadow: 0 0 0 3px rgb(45 106 79 / 15%);
   outline: none;
 }
 
@@ -57,13 +57,13 @@
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 5px rgb(0 0 0 / 10%);
 }
 
 .form-button:hover {
   background-color: var(--forest-green-light);
   transform: translateY(-2px);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 4px 8px rgb(0 0 0 / 15%);
 }
 
 

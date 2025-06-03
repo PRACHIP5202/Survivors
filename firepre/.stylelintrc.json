@@ -1,0 +1,15 @@
+{
+  "extends": "stylelint-config-standard",
+  "rules": {
+    "no-duplicate-selectors": null,
+    "no-empty-source": true,
+    "no-extra-semicolons": true,
+    "no-missing-end-of-source-newline": null,
+    "selector-type-no-unknown": true,
+    "no-descending-specificity": null,
+    "keyframes-name-pattern": null,
+    "media-feature-name-value-no-unknown": null,
+    "selector-class-pattern": null,
+    "selector-id-pattern": null
+  }
+}

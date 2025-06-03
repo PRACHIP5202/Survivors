@@ -22,7 +22,7 @@ html {
 
 /* Hero Section */
 .contact-hero {
-  padding: 8rem 0 6rem 0;
+  padding: 8rem 0 6rem;
   background: linear-gradient(135deg, #2d5a4b 0%, #1e3d33 100%);
   color: white;
   position: relative;
@@ -31,21 +31,15 @@ html {
 
 .hero-background {
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
+  inset: 0;
   background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>') repeat;
   opacity: 0.3;
 }
 
 .hero-overlay {
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(0, 0, 0, 0.2);
+  inset: 0;
+  background: rgb(0 0 0 / 20%);
 }
 
 .hero-content {
@@ -62,14 +56,14 @@ html {
   font-weight: 800;
   color: white;
   margin-bottom: 1.5rem;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  text-shadow: 2px 2px 4px rgb(0 0 0 / 30%);
   letter-spacing: -0.02em;
   line-height: 1.2;
 }
 
 .hero-subtitle {
   font-size: clamp(1.1rem, 2vw, 1.3rem);
-  color: rgba(255, 255, 255, 0.9);
+  color: rgb(255 255 255 / 90%);
   margin-bottom: 3rem;
   line-height: 1.6;
   font-weight: 400;
@@ -93,7 +87,7 @@ html {
   font-weight: 800;
   line-height: 1;
   margin-bottom: 0.5rem;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  text-shadow: 2px 2px 4px rgb(0 0 0 / 30%);
 }
 
 .stat-label {
@@ -107,7 +101,7 @@ html {
 /* Contact Methods Section */
 .contact-methods {
   padding: 6rem 0;
-  background-color: var(--bg-color, #ffffff);
+  background-color: var(--bg-color, #fff);
 }
 
 .section-header {
@@ -142,13 +136,13 @@ html {
 }
 
 .contact-method-card {
-  background: var(--card-bg, #ffffff);
+  background: var(--card-bg, #fff);
   border-radius: 16px;
   padding: 2.5rem;
   text-align: center;
   box-shadow: 
-    0 4px 6px rgba(0, 0, 0, 0.05),
-    0 10px 15px rgba(0, 0, 0, 0.1);
+    0 4px 6px rgb(0 0 0 / 5%),
+    0 10px 15px rgb(0 0 0 / 10%);
   border: 1px solid var(--border-color, #e2e8f0);
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
@@ -175,8 +169,8 @@ html {
 
 .contact-method-card:hover {
   box-shadow: 
-    0 8px 25px rgba(0, 0, 0, 0.1),
-    0 20px 40px rgba(0, 0, 0, 0.15);
+    0 8px 25px rgb(0 0 0 / 10%),
+    0 20px 40px rgb(0 0 0 / 15%);
   border-color: var(--forest-green, #2d5e2d);
 }
 
@@ -206,7 +200,7 @@ html {
   text-decoration: none;
   padding: 0.5rem 1rem;
   border-radius: 8px;
-  background-color: var(--forest-green-light, rgba(45, 94, 45, 0.1));
+  background-color: var(--forest-green-light, rgb(45 94 45 / 10%));
   transition: all 0.3s ease;
   margin-bottom: 1rem;
 }
@@ -239,7 +233,7 @@ html {
   padding: 6rem 0;
   background: linear-gradient(135deg, 
     var(--bg-secondary, #f8fafc) 0%, 
-    var(--bg-color, #ffffff) 100%);
+    var(--bg-color, #fff) 100%);
 }
 
 .form-section-header {
@@ -258,12 +252,12 @@ html {
 }
 
 .enhanced-contact-form {
-  background: var(--card-bg, #ffffff);
+  background: var(--card-bg, #fff);
   padding: 3rem;
   border-radius: 20px;
   box-shadow: 
-    0 10px 25px rgba(0, 0, 0, 0.1),
-    0 20px 40px rgba(0, 0, 0, 0.15);
+    0 10px 25px rgb(0 0 0 / 10%),
+    0 20px 40px rgb(0 0 0 / 15%);
   border: 1px solid var(--border-color, #e2e8f0);
   width: 100%;
   box-sizing: border-box;
@@ -300,7 +294,7 @@ html {
   border-radius: 10px;
   font-size: 1rem;
   transition: all 0.3s ease;
-  background-color: var(--input-bg, #ffffff);
+  background-color: var(--input-bg, #fff);
   color: var(--text-color, #2c3e50);
   box-sizing: border-box;
 }
@@ -310,7 +304,7 @@ html {
 .form-group textarea:focus {
   outline: none;
   border-color: var(--forest-green, #2d5e2d);
-  box-shadow: 0 0 0 3px rgba(45, 94, 45, 0.1);
+  box-shadow: 0 0 0 3px rgb(45 94 45 / 10%);
   transform: translateY(-2px);
 }
 
@@ -339,7 +333,7 @@ html {
 
 .submit-button:hover:not(:disabled) {
   transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(45, 94, 45, 0.3);
+  box-shadow: 0 8px 25px rgb(45 94 45 / 30%);
 }
 
 .submit-button:disabled {
@@ -361,7 +355,7 @@ html {
 .spinner {
   width: 20px;
   height: 20px;
-  border: 2px solid rgba(255, 255, 255, 0.3);
+  border: 2px solid rgb(255 255 255 / 30%);
   border-top: 2px solid white;
   border-radius: 50%;
   animation: spin 1s linear infinite;
@@ -386,7 +380,7 @@ html {
 /* Office Locations */
 .office-locations {
   padding: 6rem 0;
-  background-color: var(--bg-color, #ffffff);
+  background-color: var(--bg-color, #fff);
 }
 
 .locations-grid {
@@ -400,12 +394,12 @@ html {
 }
 
 .location-card {
-  background: var(--card-bg, #ffffff);
+  background: var(--card-bg, #fff);
   padding: 2rem;
   border-radius: 16px;
   box-shadow: 
-    0 4px 6px rgba(0, 0, 0, 0.05),
-    0 10px 15px rgba(0, 0, 0, 0.1);
+    0 4px 6px rgb(0 0 0 / 5%),
+    0 10px 15px rgb(0 0 0 / 10%);
   border: 1px solid var(--border-color, #e2e8f0);
   transition: all 0.3s ease;
   width: 100%;
@@ -414,8 +408,8 @@ html {
 
 .location-card:hover {
   box-shadow: 
-    0 8px 25px rgba(0, 0, 0, 0.1),
-    0 20px 40px rgba(0, 0, 0, 0.15);
+    0 8px 25px rgb(0 0 0 / 10%),
+    0 20px 40px rgb(0 0 0 / 15%);
 }
 
 .location-header {
@@ -472,10 +466,10 @@ html {
   max-width: 1000px;
   margin: 0 auto;
   padding: 2rem;
-  background: rgba(255, 255, 255, 0.1);
+  background: rgb(255 255 255 / 10%);
   border-radius: 16px;
   backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  border: 1px solid rgb(255 255 255 / 20%);
 }
 
 .emergency-icon {
@@ -525,7 +519,7 @@ html {
 .emergency-button:hover {
   background: #f8f9fa;
   transform: scale(1.05);
-  box-shadow: 0 8px 25px rgba(255, 255, 255, 0.3);
+  box-shadow: 0 8px 25px rgb(255 255 255 / 30%);
 }
 
 .emergency-button-icon {
@@ -538,7 +532,7 @@ html {
 
 
 /* Responsive Design */
-@media (max-width: 1024px) {
+@media (width <= 1024px) {
   .container {
     padding: 0 1.5rem;
   }
@@ -558,7 +552,7 @@ html {
   }
 }
 
-@media (max-width: 768px) {
+@media (width <= 768px) {
   .hero-stats {
     flex-direction: column;
     gap: 1.5rem;
@@ -610,7 +604,7 @@ html {
   }
 }
 
-@media (max-width: 480px) {
+@media (width <= 480px) {
   .hero-content {
     padding: 0 1rem;
   }

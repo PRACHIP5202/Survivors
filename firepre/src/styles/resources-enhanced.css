@@ -19,7 +19,7 @@ html {
 
 /* Hero Section */
 .resources-hero {
-  padding: 8rem 0 6rem 0;
+  padding: 8rem 0 6rem;
   background: linear-gradient(135deg, #2d5a4b 0%, #1e3d33 100%);
   color: white;
   position: relative;
@@ -29,10 +29,7 @@ html {
 .resources-hero::before {
   content: '';
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
+  inset: 0;
   background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/>') repeat;
   opacity: 0.3;
 }
@@ -49,8 +46,7 @@ html {
   font-size: 3.5rem;
   font-weight: 800;
   margin-bottom: 1.5rem;
-  background: linear-gradient(135deg, #ffffff 0%, #a7f3d0 100%);
-  -webkit-background-clip: text;
+  background: linear-gradient(135deg, #fff 0%, #a7f3d0 100%);
   -webkit-text-fill-color: transparent;
   background-clip: text;
   line-height: 1.2;
@@ -59,7 +55,7 @@ html {
 .hero-description {
   font-size: 1.3rem;
   line-height: 1.6;
-  color: rgba(255, 255, 255, 0.9);
+  color: rgb(255 255 255 / 90%);
   margin-bottom: 3rem;
 }
 
@@ -74,17 +70,17 @@ html {
 
 .stat-item {
   text-align: center;
-  background: rgba(255, 255, 255, 0.1);
+  background: rgb(255 255 255 / 10%);
   padding: 1.5rem 2rem;
   border-radius: 12px;
   backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  border: 1px solid rgb(255 255 255 / 20%);
   transition: transform 0.3s ease;
 }
 
 .stat-item:hover {
   transform: translateY(-5px);
-  background: rgba(255, 255, 255, 0.15);
+  background: rgb(255 255 255 / 15%);
 }
 
 .stat-number {
@@ -93,18 +89,18 @@ html {
   font-weight: 800;
   color: #f97316;
   margin-bottom: 0.5rem;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  text-shadow: 0 2px 4px rgb(0 0 0 / 30%);
   position: relative;
   z-index: 3;
 }
 
 .stat-label {
   font-size: 1rem;
-  color: rgba(255, 255, 255, 0.95);
+  color: rgb(255 255 255 / 95%);
   text-transform: uppercase;
   letter-spacing: 0.5px;
   font-weight: 600;
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  text-shadow: 0 1px 2px rgb(0 0 0 / 30%);
   position: relative;
   z-index: 3;
 }
@@ -145,7 +141,7 @@ html {
   color: var(--text-secondary, #666);
   text-align: center;
   max-width: 600px;
-  margin: 0 auto 3rem auto;
+  margin: 0 auto 3rem;
   line-height: 1.6;
 }
 
@@ -200,7 +196,7 @@ html {
 .search-input:focus {
   outline: none;
   border-color: #2d5a4b;
-  box-shadow: 0 0 0 3px rgba(45, 90, 75, 0.1);
+  box-shadow: 0 0 0 3px rgb(45 90 75 / 10%);
 }
 
 .sort-controls {
@@ -262,7 +258,7 @@ html {
   border-color: #2d5a4b;
   color: white;
   transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(45, 90, 75, 0.2);
+  box-shadow: 0 8px 25px rgb(45 90 75 / 20%);
 }
 
 .tab-icon {
@@ -274,7 +270,7 @@ html {
 }
 
 .tab-count {
-  background: rgba(255, 255, 255, 0.2);
+  background: rgb(255 255 255 / 20%);
   padding: 0.2rem 0.6rem;
   border-radius: 12px;
   font-size: 0.8rem;
@@ -282,7 +278,7 @@ html {
 }
 
 .filter-tab.active .tab-count {
-  background: rgba(255, 255, 255, 0.3);
+  background: rgb(255 255 255 / 30%);
 }
 
 /* Resources Section */
@@ -299,7 +295,7 @@ html {
   padding: 0 1rem;
 }
 
-@media (min-width: 768px) {
+@media (width >= 768px) {
   .resources-grid {
     grid-template-columns: repeat(3, 1fr);
     gap: 3rem;
@@ -307,7 +303,7 @@ html {
   }
 }
 
-@media (max-width: 768px) {
+@media (width <= 768px) {
   .resources-grid {
     grid-template-columns: 1fr;
     gap: 2rem;
@@ -320,14 +316,14 @@ html {
   padding: 2.5rem 2rem;
   text-align: center;
   position: relative;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 4px 20px rgb(0 0 0 / 8%);
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   overflow: hidden;
 }
 
 .resource-card:hover {
   transform: translateY(-8px);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 20px 40px rgb(0 0 0 / 15%);
 }
 
 .resource-icon {
@@ -345,7 +341,7 @@ html {
 
 .resource-card:hover .resource-icon {
   transform: scale(1.1) rotate(5deg);
-  box-shadow: 0 10px 30px rgba(45, 90, 75, 0.3);
+  box-shadow: 0 10px 30px rgb(45 90 75 / 30%);
 }
 
 .resource-number {
@@ -362,13 +358,13 @@ html {
   font-weight: 700;
   font-size: 0.9rem;
   color: white;
-  box-shadow: 0 4px 12px rgba(249, 115, 22, 0.4);
+  box-shadow: 0 4px 12px rgb(249 115 22 / 40%);
   border: 3px solid white;
 }
 
 .resource-card:hover .resource-number {
   transform: scale(1.1);
-  box-shadow: 0 6px 20px rgba(249, 115, 22, 0.5);
+  box-shadow: 0 6px 20px rgb(249 115 22 / 50%);
 }
 
 .resource-type {
@@ -417,12 +413,12 @@ html {
   background: #2d5a4b;
   color: white;
   transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(45, 90, 75, 0.2);
+  box-shadow: 0 8px 25px rgb(45 90 75 / 20%);
 }
 
 .resource-card.featured {
   border: 2px solid #fbbf24;
-  background: linear-gradient(135deg, #ffffff 0%, #fefbf0 100%);
+  background: linear-gradient(135deg, #fff 0%, #fefbf0 100%);
 }
 
 .featured-badge {
@@ -436,7 +432,7 @@ html {
   font-size: 0.8rem;
   font-weight: 600;
   z-index: 2;
-  box-shadow: 0 4px 12px rgba(251, 191, 36, 0.3);
+  box-shadow: 0 4px 12px rgb(251 191 36 / 30%);
 }
 
 .resource-image {
@@ -450,7 +446,7 @@ html {
 
 .resource-emoji {
   font-size: 4rem;
-  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.1));
+  filter: drop-shadow(0 4px 8px rgb(0 0 0 / 10%));
 }
 
 .resource-content {
@@ -564,10 +560,7 @@ html {
 .resources-insights::before {
   content: '';
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
+  inset: 0;
   background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse"><path d="M 20 0 L 0 0 0 20" fill="none" stroke="rgba(45,90,75,0.03)" stroke-width="1"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>') repeat;
   opacity: 0.5;
 }

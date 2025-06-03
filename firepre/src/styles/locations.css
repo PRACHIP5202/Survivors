@@ -18,7 +18,7 @@
 .location-card {
   background-color: var(--card-bg);
   border: 1px solid var(--card-border);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); /* Deeper shadow for depth */
+  box-shadow: 0 4px 12px rgb(0 0 0 / 30%); /* Deeper shadow for depth */
   border-radius: 8px; /* Ensure rounded corners */
   padding: 1rem 1.25rem; /* Slightly more padding */
 }

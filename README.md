@@ -49,6 +49,18 @@ The application will be available at:
 - Frontend: http://localhost:5173
 - Backend API: http://localhost:8000
 
+### Building for Production
+```bash
+# Build both frontend and backend (recommended)
+npm run build:robust
+
+# Alternative build options for CSS issues
+npm run build:safe    # Disables CSS minification completely
+npm run build:simple  # Uses a simpler CSS processing pipeline
+```
+
+For more details on handling CSS build issues, see [CSS Minification Fix](docs/CSS_MINIFICATION_FIX.md).
+
 ## 📁 Project Structure
 
 ```

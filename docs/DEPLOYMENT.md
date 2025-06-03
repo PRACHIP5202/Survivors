@@ -26,7 +26,7 @@ This guide covers deploying EmberEye to production environments using platform-s
    ```
 
 3. **Build Settings**:
-   - **Build Command**: `npm run build` or `npm run build:safe` (if encountering CSS warnings)
+   - **Build Command**: `npm run build:robust` (recommended) or `npm run build:safe` (if issues persist)
    - **Output Directory**: `dist`
    - **Environment Variables**:
      - `VITE_WEATHER_API_KEY`
@@ -46,7 +46,7 @@ This guide covers deploying EmberEye to production environments using platform-s
    ```
 
 3. **Build Settings**:
-   - **Build Command**: `npm run build`
+   - **Build Command**: `npm run build:robust` (recommended)
    - **Publish Directory**: `dist`
    - **Environment Variables**: Same as Vercel
 

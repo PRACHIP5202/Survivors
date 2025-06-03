@@ -5,7 +5,7 @@
   background-color: white;
   padding: 1.5rem;
   border-radius: 12px; /* More rounded corners */
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08); /* Enhanced shadow for depth */
+  box-shadow: 0 6px 15px rgb(0 0 0 / 8%); /* Enhanced shadow for depth */
   margin-top: 1.5rem;
   border-left: 5px solid var(--high-risk); /* Slightly thicker accent border */
   transition: all 0.3s ease;
@@ -21,25 +21,25 @@
   right: 0;
   width: 90px;
   height: 90px;
-  background-color: rgba(244, 67, 54, 0.05); /* Very subtle background highlight */
+  background-color: rgb(244 67 54 / 5%); /* Very subtle background highlight */
   border-radius: 0 0 0 90px;
   z-index: 0;
   transition: all 0.3s ease;
 }
 
 .risk-low::before {
-  background-color: rgba(76, 175, 80, 0.05);
+  background-color: rgb(76 175 80 / 5%);
 }
 
 .risk-medium::before,
 .risk-moderate::before {
-  background-color: rgba(255, 152, 0, 0.05);
+  background-color: rgb(255 152 0 / 5%);
 }
 
 .risk-high::before,
 .risk-very-high::before,
 .risk-extreme::before {
-  background-color: rgba(244, 67, 54, 0.05);
+  background-color: rgb(244 67 54 / 5%);
 }
 
 /* Risk Level-specific styling */
@@ -83,8 +83,8 @@
   font-size: 0.875rem;
   font-weight: 600;
   letter-spacing: 0.5px; /* Better letter spacing for readability */
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2); /* Subtle shadow for better contrast */
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15); /* Slight shadow for depth */
+  text-shadow: 0 1px 2px rgb(0 0 0 / 20%); /* Subtle shadow for better contrast */
+  box-shadow: 0 2px 4px rgb(0 0 0 / 15%); /* Slight shadow for depth */
 }
 
 /* Risk-specific badge colors */
@@ -148,7 +148,7 @@
 }
 
 @keyframes pulse {
-  0% { box-shadow: 0 0 0 0 rgba(255, 23, 68, 0.4); }
-  70% { box-shadow: 0 0 0 6px rgba(255, 23, 68, 0); }
-  100% { box-shadow: 0 0 0 0 rgba(255, 23, 68, 0); }
+  0% { box-shadow: 0 0 0 0 rgb(255 23 68 / 40%); }
+  70% { box-shadow: 0 0 0 6px rgb(255 23 68 / 0%); }
+  100% { box-shadow: 0 0 0 0 rgb(255 23 68 / 0%); }
 }

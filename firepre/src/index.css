@@ -2,11 +2,11 @@
   /* Color Palette - Nature + Hazard Tones */
   --forest-green: #2D6A4F;
   --forest-green-light: #40916C;
-  --burnt-orange: #CC5500;
+  --burnt-orange: #C50;
   --burnt-orange-light: #E67E22;
-  --charcoal-grey: #333333;
+  --charcoal-grey: #333;
   --light-grey: #F5F5F5;
-  --white: #FFFFFF;
+  --white: #FFF;
   --yellow-warning: #FFD666;
   --red-danger: #E53935;
   --low-risk: #4CAF50;
@@ -18,29 +18,27 @@
   --text-color: var(--charcoal-grey);
   --header-color: var(--charcoal-grey);
   --card-bg: var(--white);
-  --card-border: rgba(0, 0, 0, 0.1);
-  --hover-bg: rgba(0, 0, 0, 0.05);
+  --card-border: rgb(0 0 0 / 10%);
+  --hover-bg: rgb(0 0 0 / 5%);
   --button-text: var(--white);
-  --map-border: rgba(0, 0, 0, 0.15);
-  --shadow-color: rgba(0, 0, 0, 0.1);
+  --map-border: rgb(0 0 0 / 15%);
+  --shadow-color: rgb(0 0 0 / 10%);
   --input-bg: var(--white);
   --input-text: var(--charcoal-grey);
-  --input-border: #DDDDDD;
-  --navbar-bg: rgba(255, 255, 255, 0.95);
+  --input-border: #DDD;
+  --navbar-bg: rgb(255 255 255 / 95%);
   --footer-bg: var(--light-grey);
-  --divider-color: rgba(0, 0, 0, 0.1);
+  --divider-color: rgb(0 0 0 / 10%);
   --panel-bg: var(--white);
-  --secondary-text: #666666;
+  --secondary-text: #666;
   
-  font-family: 'Inter', system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
-  
   color: var(--text-color);
   background-color: var(--bg-color);
-
   font-synthesis: none;
-  text-rendering: optimizeLegibility;
+  text-rendering: optimizelegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -135,11 +133,11 @@ input, textarea, select {
 input:focus, textarea:focus, select:focus {
   outline: none;
   border-color: var(--forest-green);
-  box-shadow: 0 0 0 2px rgba(45, 106, 79, 0.2);
+  box-shadow: 0 0 0 2px rgb(45 106 79 / 20%);
 }
 
 ::placeholder {
-  color: rgba(224, 224, 224, 0.6); /* More visible placeholder text */
+  color: rgb(224 224 224 / 60%); /* More visible placeholder text */
 }
 
 /* Navbar */
@@ -155,7 +153,7 @@ input:focus, textarea:focus, select:focus {
 
 .navbar-dark .nav-link:hover {
   background-color: var(--burnt-orange);
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 5px 15px rgb(0 0 0 / 40%);
 }
 
 /* Cards and Containers */
@@ -184,7 +182,7 @@ input:focus, textarea:focus, select:focus {
 }
 
 /* Responsive Design */
-@media (max-width: 768px) {
+@media (width <= 768px) {
   h1 {
     font-size: 2rem;
   }

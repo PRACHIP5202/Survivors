@@ -10,6 +10,7 @@
     "build:frontend": "cd firepre && npm run build",
     "build:backend": "cd backend && echo 'Backend build complete'",
     "build:safe": "./scripts/build-prod-safe.sh",
+    "build:robust": "cd firepre && npm run build:robust",
     "install:all": "npm install && cd firepre && npm install --legacy-peer-deps && cd ../backend && pip3 install -r requirements.txt",
     "install:frontend": "cd firepre && npm install --legacy-peer-deps",
     "install:backend": "cd backend && pip3 install -r requirements.txt",

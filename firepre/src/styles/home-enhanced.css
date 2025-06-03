@@ -23,7 +23,7 @@
   font-size: 3.5rem;
   font-weight: 800;
   margin-bottom: 1.5rem;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  text-shadow: 2px 2px 4px rgb(0 0 0 / 30%);
 }
 
 .hero-subtitle {
@@ -37,8 +37,8 @@
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  background: rgba(255, 255, 255, 0.2);
-  border: 2px solid rgba(255, 255, 255, 0.3);
+  background: rgb(255 255 255 / 20%);
+  border: 2px solid rgb(255 255 255 / 30%);
   color: white;
   padding: 1rem 2rem;
   border-radius: 50px;
@@ -49,10 +49,10 @@
 }
 
 .hero-cta:hover {
-  background: rgba(255, 255, 255, 0.3);
-  border-color: rgba(255, 255, 255, 0.5);
+  background: rgb(255 255 255 / 30%);
+  border-color: rgb(255 255 255 / 50%);
   transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 8px 25px rgb(0 0 0 / 20%);
 }
 
 .features-section {
@@ -71,14 +71,14 @@
   background: white;
   padding: 2rem;
   border-radius: 1rem;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 4px 6px rgb(0 0 0 / 5%);
   transition: all 0.3s ease;
   border: 1px solid #e2e8f0;
 }
 
 .feature-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 12px 30px rgb(0 0 0 / 10%);
 }
 
 .feature-icon {
@@ -141,10 +141,7 @@
 .how-it-works::before {
   content: '';
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
+  inset: 0;
   background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(99,102,241,0.03)" stroke-width="1"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
   opacity: 0.5;
 }
@@ -215,7 +212,7 @@
   padding: 2.5rem 2rem;
   text-align: center;
   position: relative;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 4px 20px rgb(0 0 0 / 8%);
   border: 1px solid #e2e8f0;
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   z-index: 2;
@@ -236,7 +233,7 @@
 
 .step-card:hover {
   transform: translateY(-8px);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 20px 40px rgb(0 0 0 / 15%);
   border-color: #2d5a4b;
 }
 
@@ -259,14 +256,14 @@
 
 .step-card:hover .step-icon {
   transform: scale(1.1) rotate(5deg);
-  box-shadow: 0 10px 30px rgba(45, 90, 75, 0.3);
+  box-shadow: 0 10px 30px rgb(45 90 75 / 30%);
 }
 
 .step-icon svg {
   width: 40px;
   height: 40px;
   color: white;
-  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+  filter: drop-shadow(0 2px 4px rgb(0 0 0 / 20%));
 }
 
 .step-number {
@@ -284,13 +281,13 @@
   font-size: 0.875rem;
   color: white;
   border: 3px solid white;
-  box-shadow: 0 4px 12px rgba(249, 115, 22, 0.4);
+  box-shadow: 0 4px 12px rgb(249 115 22 / 40%);
   transition: all 0.3s ease;
 }
 
 .step-card:hover .step-number {
   transform: scale(1.2);
-  box-shadow: 0 6px 20px rgba(249, 115, 22, 0.6);
+  box-shadow: 0 6px 20px rgb(249 115 22 / 60%);
 }
 
 .step-title {
@@ -308,7 +305,7 @@
 }
 
 /* Connection lines for larger screens */
-@media (min-width: 1024px) {
+@media (width >= 1024px) {
   .steps-container::before {
     display: block;
   }
@@ -319,7 +316,7 @@
 }
 
 /* Tablet adjustments */
-@media (max-width: 768px) {
+@media (width <= 768px) {
   .how-it-works {
     padding: 3rem 0;
   }
@@ -348,7 +345,7 @@
 }
 
 /* Mobile adjustments */
-@media (max-width: 480px) {
+@media (width <= 480px) {
   .how-it-works .container {
     padding: 0 1rem;
   }
