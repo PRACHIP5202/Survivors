@@ -1,7 +1,50 @@
 {
+  "name": "embereye",
+  "version": "1.0.0",
+  "description": "AI-Powered Wildfire Risk Prediction Application",
+  "scripts": {
+    "dev": "concurrently \"npm run dev:backend\" \"npm run dev:frontend\"",
+    "dev:frontend": "cd firepre && npm run dev",
+    "dev:backend": "cd backend && python3 -m uvicorn main:app --reload --host 0.0.0.0 --port 8000",
+    "build": "npm run build:frontend",
+    "build:frontend": "cd firepre && npm run build",
+    "install:all": "npm install && cd firepre && npm install && cd ../backend && pip3 install -r requirements.txt",
+    "install:frontend": "cd firepre && npm install",
+    "install:backend": "cd backend && pip3 install -r requirements.txt",
+    "test": "npm run test:frontend && npm run test:backend",
+    "test:frontend": "cd firepre && npm run test",
+    "test:backend": "cd backend && python3 -m pytest",
+    "lint": "npm run lint:frontend",
+    "lint:frontend": "cd firepre && npm run lint",
+    "start": "npm run dev",
+    "setup": "npm run install:all && npm run setup:env",
+    "setup:env": "echo 'Please copy .env.example files to .env and configure your API keys'",
+    "validate": "./scripts/validate.sh",
+    "check": "./scripts/validate.sh"
+  },
   "devDependencies": {
     "autoprefixer": "^10.4.21",
     "postcss": "^8.5.3",
-    "tailwindcss": "^4.1.7"
+    "tailwindcss": "^4.1.7",
+    "concurrently": "^8.2.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/embereye.git"
+  },
+  "keywords": [
+    "wildfire",
+    "prediction",
+    "ai",
+    "react",
+    "fastapi",
+    "weather",
+    "risk-assessment"
+  ],
+  "author": "Your Name",
+  "license": "MIT",
+  "engines": {
+    "node": ">=18.0.0",
+    "python": ">=3.8"
   }
 }
