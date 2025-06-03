@@ -99,6 +99,34 @@ else
     print_status 1 "Backend environment template"
 fi
 
+echo ""
+echo "🔒 Running Security Audits..."
+
+# Run frontend security audit
+echo "Frontend dependencies:"
+if cd firepre && npm audit --audit-level high; then
+    print_status 0 "Frontend dependencies secure"
+else
+    print_status 1 "Frontend has high severity vulnerabilities"
+    HIGH_VULNS=1
+fi
+cd ..
+
+# Run backend security audit if pip-audit is available
+echo "Backend dependencies:"
+if command -v pip-audit &> /dev/null; then
+    if cd backend && pip-audit -r requirements.txt; then
+        print_status 0 "Backend dependencies secure"
+    else
+        print_status 1 "Backend has vulnerabilities"
+        BACKEND_VULNS=1
+    fi
+    cd ..
+else
+    print_warning "pip-audit not installed. Install with: pip install pip-audit"
+    print_warning "Skipping backend dependency check"
+fi
+
 if [ -f "firepre/.env.example" ]; then
     print_status 0 "Frontend environment template"
 else

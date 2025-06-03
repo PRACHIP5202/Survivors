@@ -20,6 +20,9 @@
 - [ ] No sensitive data in version control
 - [ ] HTTPS configured
 - [ ] Security headers enabled
+- [ ] Security audit passed (`npm run audit`)
+- [ ] No high severity vulnerabilities in dependencies
+- [ ] Authentication systems tested (if applicable)
 
 ### ✅ Performance
 - [ ] Frontend bundle size optimized

@@ -1,0 +1,72 @@
+name: EmberEye CI
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main, develop ]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+      
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+      
+      - name: Install dependencies
+        run: |
+          npm ci
+          cd firepre && npm ci
+          cd ../backend && pip install -r requirements.txt
+          pip install pip-audit
+      
+      - name: Lint frontend
+        run: npm run lint:frontend
+      
+      - name: Run frontend tests
+        run: npm run test:frontend
+      
+      - name: Run backend tests
+        run: npm run test:backend
+      
+      - name: Security audit
+        run: ./scripts/ci-security-audit.sh
+      
+      - name: Build
+        run: npm run build:robust
+
+  deploy:
+    needs: validate
+    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      
+      - name: Install dependencies
+        run: |
+          npm ci
+          cd firepre && npm ci
+      
+      - name: Build
+        run: npm run build:robust
+      
+      # Add deployment steps here
+      # Example for Vercel:
+      # - name: Deploy to Vercel
+      #   run: npm run deploy:vercel
