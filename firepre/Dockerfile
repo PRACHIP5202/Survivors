@@ -4,7 +4,8 @@ WORKDIR /app
 
 # Install dependencies
 COPY package.json package-lock.json ./
-RUN npm ci
+# Force use package.json instead of package-lock.json to ensure we get React 18.2.0
+RUN npm install
 
 # Copy source code
 COPY . .

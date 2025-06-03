@@ -31,7 +31,9 @@ jobs:
     
     - name: Install dependencies
       run: |
-        npm run install:all
+        npm install
+        cd firepre && npm install --legacy-peer-deps
+        cd ../backend && pip3 install -r requirements.txt
     
     - name: Run validation
       run: |
