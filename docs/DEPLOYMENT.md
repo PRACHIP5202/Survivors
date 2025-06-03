@@ -26,7 +26,7 @@ This guide covers deploying EmberEye to production environments using platform-s
    ```
 
 3. **Build Settings**:
-   - **Build Command**: `npm run build`
+   - **Build Command**: `npm run build` or `npm run build:safe` (if encountering CSS warnings)
    - **Output Directory**: `dist`
    - **Environment Variables**:
      - `VITE_WEATHER_API_KEY`
@@ -194,3 +194,22 @@ VITE_API_BASE_URL=https://your-backend-domain.com/api
 - Environment configuration backups
 - Database backups (if applicable)
 - Disaster recovery procedures
+
+## Troubleshooting
+
+### CSS Minification Warnings
+If you encounter CSS minification warnings during the build process, you have two options:
+
+1. **Use the safe build command**:
+   ```bash
+   npm run build:safe
+   ```
+   This will build the application without CSS minification, avoiding the warnings.
+
+2. **For more details**: See the [CSS_MINIFICATION_FIX.md](./CSS_MINIFICATION_FIX.md) document for a complete explanation of the issue and solutions.
+
+### API Connection Issues
+- Check CORS configuration in backend
+- Verify API base URL in frontend environment
+- Ensure API keys are properly set
+- Check network request/response in browser developer tools

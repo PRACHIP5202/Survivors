@@ -138,8 +138,7 @@ input:focus, textarea:focus, select:focus {
   box-shadow: 0 0 0 2px rgba(45, 106, 79, 0.2);
 }
 
-}
-
+::placeholder {
   color: rgba(224, 224, 224, 0.6); /* More visible placeholder text */
 }
 
@@ -154,6 +153,7 @@ input:focus, textarea:focus, select:focus {
   color: var(--text-color);
 }
 
+.navbar-dark .nav-link:hover {
   background-color: var(--burnt-orange);
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
 }

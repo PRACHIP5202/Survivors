@@ -133,9 +133,8 @@
   font-weight: bold;
 }
 
+.risk-recommendations strong {
   color: var(--header-color);
-}
-
 }
 
 /* Special styling for extreme risk */

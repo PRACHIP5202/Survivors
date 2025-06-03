@@ -79,12 +79,14 @@ embereye/
 - [Development Setup](docs/DEVELOPMENT.md) - Complete setup and development guide
 - [API Reference](docs/API.md) - Backend API documentation
 - [Deployment Guide](docs/DEPLOYMENT.md) - Production deployment instructions
+- [CSS Minification Fix](docs/CSS_MINIFICATION_FIX.md) - Handling CSS build warnings
 
 ## 🛠️ Available Scripts
 
 ### Root Level
 - `npm run dev` - Start both frontend and backend
 - `npm run build` - Build frontend for production
+- `npm run build:safe` - Build frontend without CSS minification
 - `npm run setup` - Initial project setup
 - `npm run test` - Run all tests
 
@@ -156,6 +158,10 @@ EmberEye can be deployed using various platform-specific options:
 - **Netlify**: `npm run deploy:netlify`
 - **Firebase**: `npm run deploy:firebase`
 
+**Build Options**:
+- Standard build: `npm run build`
+- Safe build (bypasses CSS warnings): `npm run build:safe`
+
 ### Backend Deployment
 - **Heroku**: `npm run deploy:heroku`
 - **Render**: Connect GitHub repository to Render.com
@@ -165,6 +171,7 @@ For complete deployment instructions, see:
 - [Deployment Guide](docs/DEPLOYMENT.md)
 - [Deployment Options](DEPLOYMENT_OPTIONS.md)
 - [Deployment Checklist](DEPLOYMENT_CHECKLIST.md)
+- [CSS Minification Fix](docs/CSS_MINIFICATION_FIX.md)
 
 ## 📄 License
 

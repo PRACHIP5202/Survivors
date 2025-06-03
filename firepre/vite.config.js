@@ -2,11 +2,16 @@ import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 
 // https://vite.dev/config/
-export default defineConfig(({ command, mode }) => {
+export default defineConfig(({ command, mode, isSsrBuild }) => {
   const isProd = mode === 'production';
+  const disableCssMinify = process.env.VITE_DISABLE_CSS_MINIFY === 'true';
   
   return {
     plugins: [react()],
+    css: {
+      // Generate sourcemaps in development only
+      devSourcemap: !isProd
+    },
     build: {
       // Production optimizations
       minify: 'terser',
@@ -28,6 +33,10 @@ export default defineConfig(({ command, mode }) => {
         },
       },
       sourcemap: !isProd,
+      // Disable CSS minification if env var is set
+      cssMinify: disableCssMinify ? false : isProd,
+      // Keep CSS in separate files
+      cssCodeSplit: true,
     },
     server: {
       port: 5173,
