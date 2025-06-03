@@ -14,6 +14,10 @@ import './styles/map-enhanced.css';
 import './styles/forms-enhanced.css';
 import './styles/animations.css';
 import './styles/risk-card-enhanced.css';
+import './styles/how-it-works-enhanced.css';
+import './styles/resources-enhanced.css';
+import './styles/contact-enhanced.css';
+import './styles/home-enhanced.css';
 
 function App() {
   return (

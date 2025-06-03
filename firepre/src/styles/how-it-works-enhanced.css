@@ -1,0 +1,533 @@
+/* How It Works Page Enhanced Styles */
+
+/* Smooth scrolling for the entire page */
+html {
+  scroll-behavior: smooth;
+}
+
+.how-it-works-page {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f8fffe 0%, #eef9f6 100%);
+  overflow-x: hidden;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* Hero Section */
+.hero-section {
+  padding: 8rem 0 6rem 0;
+  background: linear-gradient(135deg, #2d5a4b 0%, #1e3d33 100%);
+  color: white;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>') repeat;
+  opacity: 0.3;
+}
+
+.hero-content {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+.hero-title {
+  font-size: 3.5rem;
+  font-weight: 800;
+  margin-bottom: 1.5rem;
+  background: linear-gradient(135deg, #ffffff 0%, #a7f3d0 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1.2;
+}
+
+.hero-description {
+  font-size: 1.3rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 0;
+}
+
+/* Process Section */
+.process-section {
+  padding: 6rem 0;
+  background: white;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 3rem;
+  color: #1e3d33;
+  position: relative;
+}
+
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(135deg, #2d5a4b, #48cc6c);
+  border-radius: 2px;
+}
+
+.process-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin-top: 4rem;
+}
+
+.process-card {
+  background: white;
+  border-radius: 20px;
+  padding: 2.5rem 2rem;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(45, 90, 75, 0.1);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.process-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(135deg, #2d5a4b, #48cc6c);
+}
+
+.process-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+}
+
+.process-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.process-icon {
+  font-size: 3rem;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.1));
+}
+
+.process-number {
+  background: linear-gradient(135deg, #2d5a4b, #48cc6c);
+  color: white;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 700;
+  font-size: 1.1rem;
+  box-shadow: 0 4px 12px rgba(45, 90, 75, 0.3);
+}
+
+.process-title {
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: #1e3d33;
+}
+
+.process-description {
+  color: #666;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.process-details {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.process-details li {
+  padding: 0.5rem 0;
+  color: #555;
+  position: relative;
+  padding-left: 1.5rem;
+}
+
+.process-details li::before {
+  content: '•';
+  color: #48cc6c;
+  font-weight: bold;
+  position: absolute;
+  left: 0;
+}
+
+/* Technology Section */
+.technology-section {
+  padding: 6rem 0;
+  background: linear-gradient(135deg, #f8fffe 0%, #eef9f6 100%);
+}
+
+.section-subtitle {
+  font-size: 1.2rem;
+  color: #666;
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto 3rem auto;
+  line-height: 1.6;
+}
+
+.technology-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.technology-card {
+  background: white;
+  border-radius: 16px;
+  padding: 2rem;
+  text-align: center;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
+  border: 1px solid rgba(45, 90, 75, 0.08);
+  transition: all 0.3s ease;
+}
+
+.technology-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 45px rgba(0, 0, 0, 0.12);
+}
+
+.tech-icon {
+  font-size: 3rem;
+  margin-bottom: 1.5rem;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.1));
+}
+
+.tech-title {
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: #1e3d33;
+}
+
+.tech-description {
+  color: #666;
+  line-height: 1.6;
+}
+
+/* Data Sources Section */
+.data-sources-section {
+  padding: 6rem 0;
+  background: white;
+}
+
+.data-sources-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin-top: 3rem;
+}
+
+.data-source-card {
+  background: linear-gradient(135deg, #ffffff 0%, #f8fffe 100%);
+  border-radius: 12px;
+  padding: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(45, 90, 75, 0.1);
+  transition: all 0.3s ease;
+}
+
+.data-source-card:hover {
+  transform: translateX(5px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+}
+
+.source-icon {
+  font-size: 2.5rem;
+  flex-shrink: 0;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+}
+
+.source-content {
+  flex: 1;
+}
+
+.source-name {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: #1e3d33;
+}
+
+.source-description {
+  color: #666;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* Loading states and animations */
+.process-card,
+.technology-card,
+.data-source-card {
+  will-change: transform;
+  opacity: 0;
+  animation: fadeInUp 0.6s ease forwards;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Stagger animation delays */
+.process-card:nth-child(1) { animation-delay: 0.1s; }
+.process-card:nth-child(2) { animation-delay: 0.2s; }
+.process-card:nth-child(3) { animation-delay: 0.3s; }
+.process-card:nth-child(4) { animation-delay: 0.4s; }
+
+.technology-card:nth-child(1) { animation-delay: 0.1s; }
+.technology-card:nth-child(2) { animation-delay: 0.2s; }
+.technology-card:nth-child(3) { animation-delay: 0.3s; }
+.technology-card:nth-child(4) { animation-delay: 0.4s; }
+
+/* Focus states for accessibility */
+.process-card:focus,
+.technology-card:focus,
+.data-source-card:focus {
+  outline: 2px solid #2d5a4b;
+  outline-offset: 4px;
+}
+
+/* Dark Mode Support */
+[data-theme="dark"] .how-it-works-page {
+  background: linear-gradient(135deg, #0f1a17 0%, #1a2f26 100%);
+}
+
+[data-theme="dark"] .process-section {
+  background: #121212;
+}
+
+[data-theme="dark"] .technology-section {
+  background: linear-gradient(135deg, #0f1a17 0%, #1a2f26 100%);
+}
+
+[data-theme="dark"] .data-sources-section {
+  background: #121212;
+}
+
+[data-theme="dark"] .section-title {
+  color: #e0e0e0;
+}
+
+[data-theme="dark"] .process-card,
+[data-theme="dark"] .technology-card {
+  background: #1e1e1e;
+  border-color: rgba(255, 255, 255, 0.1);
+  color: #e0e0e0;
+}
+
+[data-theme="dark"] .process-title,
+[data-theme="dark"] .tech-title,
+[data-theme="dark"] .source-name {
+  color: #ffffff;
+}
+
+[data-theme="dark"] .process-description,
+[data-theme="dark"] .tech-description,
+[data-theme="dark"] .source-description,
+[data-theme="dark"] .section-subtitle {
+  color: #b0b0b0;
+}
+
+[data-theme="dark"] .data-source-card {
+  background: linear-gradient(135deg, #1e1e1e 0%, #0f1a17 100%);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+[data-theme="dark"] .process-details li {
+  color: #b0b0b0;
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .process-card,
+  .technology-card,
+  .data-source-card {
+    border: 2px solid #2d5a4b;
+  }
+  
+  .hero-section {
+    background: #1e3d33;
+  }
+  
+  .section-title,
+  .process-title,
+  .tech-title,
+  .source-name {
+    font-weight: 700;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .container {
+    padding: 0 1.5rem;
+  }
+  
+  .process-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+  
+  .technology-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-section {
+    padding: 6rem 0 4rem 0;
+  }
+  
+  .hero-title {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  .hero-description {
+    font-size: 1.1rem;
+  }
+  
+  .process-section,
+  .technology-section,
+  .data-sources-section {
+    padding: 4rem 0;
+  }
+  
+  .section-title {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .section-subtitle {
+    font-size: 1rem;
+    margin-bottom: 2rem;
+  }
+  
+  .process-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .process-card {
+    padding: 2rem 1.5rem;
+  }
+  
+  .technology-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .technology-card {
+    padding: 1.5rem;
+  }
+  
+  .data-sources-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .data-source-card {
+    padding: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 0 1rem;
+  }
+  
+  .hero-section {
+    padding: 4rem 0 3rem 0;
+  }
+  
+  .hero-title {
+    font-size: 2rem;
+  }
+  
+  .hero-description {
+    font-size: 1rem;
+  }
+  
+  .process-section,
+  .technology-section,
+  .data-sources-section {
+    padding: 3rem 0;
+  }
+  
+  .section-title {
+    font-size: 1.8rem;
+  }
+  
+  .process-card,
+  .technology-card {
+    padding: 1.5rem 1rem;
+  }
+  
+  .process-title,
+  .tech-title {
+    font-size: 1.1rem;
+  }
+  
+  .process-icon,
+  .tech-icon {
+    font-size: 2rem;
+  }
+}
