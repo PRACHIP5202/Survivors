@@ -15,12 +15,6 @@
   letter-spacing: 0.3px;
 }
 
-[data-theme='dark'] .location-name {
-  color: var(--forest-green-light);
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2); /* Subtle text shadow for better contrast */
-}
-
-[data-theme='dark'] .location-info {
   background-color: var(--card-bg);
   border: 1px solid var(--card-border);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); /* Deeper shadow for depth */
@@ -28,12 +22,6 @@
   padding: 1rem 1.25rem; /* Slightly more padding */
 }
 
-[data-theme='dark'] .location-title {
-  color: var(--header-color);
-  margin-bottom: 10px;
-  font-weight: 600;
-  font-size: 1.1rem;
-}
 
 /* Add light mode specific styles for consistency */
 .location-info {

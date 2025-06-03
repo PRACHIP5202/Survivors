@@ -2,7 +2,6 @@ import { MapContainer, TileLayer, Marker, Popup, useMapEvents, useMap } from 're
 import { useEffect, useState, useCallback, useRef } from 'react';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
-import { useTheme } from '../contexts/ThemeContext';
 
 // Fixing missing default marker icon issue in Leaflet + Vite
 delete L.Icon.Default.prototype._getIconUrl;
@@ -12,35 +11,8 @@ L.Icon.Default.mergeOptions({
   shadowUrl: new URL('leaflet/dist/images/marker-shadow.png', import.meta.url).href,
 });
 
-// Map tile URL options for light and dark modes
-const LIGHT_MAP = 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
-const DARK_MAP = 'https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png';
-
-function ThemeUpdater() {
-  const map = useMap();
-  const { darkMode } = useTheme();
-  const tileLayerRef = useRef();
-  
-  useEffect(() => {
-    if (tileLayerRef.current) {
-      map.removeLayer(tileLayerRef.current);
-    }
-    
-    // Create a new tile layer with the current theme
-    const tileLayer = L.tileLayer(darkMode ? DARK_MAP : LIGHT_MAP, {
-      attribution: darkMode 
-        ? '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>'
-        : '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-    });
-    
-    // Add the new layer to the map
-    tileLayer.addTo(map);
-    tileLayerRef.current = tileLayer;
-    
-  }, [map, darkMode]);
-  
-  return null;
-}
+// Map tile URL for light mode
+const MAP_TILES = 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
 
 function LocationMarker({ onLocationSelect }) {
   const [position, setPosition] = useState(null);
@@ -90,7 +62,6 @@ function LocationMarker({ onLocationSelect }) {
 function LocateControl({ onLocationUpdate }) {
   const map = useMap();
   const [loading, setLoading] = useState(false);
-  const { darkMode } = useTheme();
   
   const handleLocate = useCallback(() => {
     setLoading(true);
@@ -117,11 +88,11 @@ function LocateControl({ onLocationUpdate }) {
     top: '20px',
     right: '20px',
     zIndex: 1000,
-    backgroundColor: darkMode ? '#1E1E1E' : 'white',
-    border: `2px solid ${darkMode ? 'rgba(255,255,255,0.2)' : 'rgba(0,0,0,0.2)'}`,
+    backgroundColor: 'white',
+    border: '2px solid rgba(0,0,0,0.2)',
     borderRadius: '4px',
     padding: '8px 12px',
-    boxShadow: `0 2px 5px ${darkMode ? 'rgba(0,0,0,0.5)' : 'rgba(0,0,0,0.3)'}`,
+    boxShadow: '0 2px 5px rgba(0,0,0,0.3)',
     cursor: loading ? 'default' : 'pointer',
     display: 'flex',
     alignItems: 'center',
@@ -135,9 +106,9 @@ function LocateControl({ onLocationUpdate }) {
   const [isHovering, setIsHovering] = useState(false);
   
   const hoverStyle = isHovering && !loading ? {
-    backgroundColor: darkMode ? '#333333' : '#f8f8f8',
+    backgroundColor: '#f8f8f8',
     transform: 'scale(1.05)',
-    boxShadow: darkMode ? '0 3px 7px rgba(0,0,0,0.7)' : '0 3px 7px rgba(0,0,0,0.4)'
+    boxShadow: '0 3px 7px rgba(0,0,0,0.4)'
   } : {};
 
   return (
@@ -151,7 +122,7 @@ function LocateControl({ onLocationUpdate }) {
       onMouseLeave={() => setIsHovering(false)}
     >
       {loading ? (
-        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke={darkMode ? "#E0E0E0" : "currentColor"} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ animation: 'spin 1s linear infinite' }}>
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ animation: 'spin 1s linear infinite' }}>
           <circle cx="12" cy="12" r="10"></circle>
           <path d="M12 6v6l4 2"></path>
           <style>{`
@@ -163,11 +134,11 @@ function LocateControl({ onLocationUpdate }) {
         </svg>
       ) : (
         <div style={{ display: 'flex', alignItems: 'center', gap: '5px' }}>
-          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke={darkMode ? "#4CAF50" : "#0066CC"} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2d5a4b" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
             <path d="M12 2a8 8 0 0 0-8 8c0 5.4 7.05 11.5 7.35 11.76a1 1 0 0 0 1.3 0C13 21.5 20 15.4 20 10a8 8 0 0 0-8-8z"></path>
-            <circle cx="12" cy="10" r="3" fill={darkMode ? "#4CAF50" : "#0066CC"}></circle>
+            <circle cx="12" cy="10" r="3" fill="#2d5a4b"></circle>
           </svg>
-          <span style={{ fontSize: '12px', fontWeight: 'bold', color: darkMode ? '#E0E0E0' : '#333' }}>My Location</span>
+          <span style={{ fontSize: '12px', fontWeight: 'bold', color: '#333' }}>My Location</span>
         </div>
       )}
     </button>
@@ -179,7 +150,6 @@ export default function MapView({ onLocationChange }) {
     lat: 20.5937,
     lng: 78.9629,
   });
-  const { darkMode } = useTheme();
 
   const handleLocationSelect = (latlng) => {
     setLocation(latlng);
@@ -192,9 +162,8 @@ export default function MapView({ onLocationChange }) {
       width: '100%', 
       borderRadius: '10px', 
       overflow: 'hidden', 
-      boxShadow: darkMode ? '0 2px 8px rgba(0,0,0,0.4)' : '0 2px 8px rgba(0,0,0,0.15)', 
-      position: 'relative',
-      border: darkMode ? '1px solid rgba(255,255,255,0.1)' : 'none'
+      boxShadow: '0 2px 8px rgba(0,0,0,0.15)', 
+      position: 'relative'
     }}>
       <MapContainer
         center={[location.lat, location.lng]}
@@ -204,9 +173,8 @@ export default function MapView({ onLocationChange }) {
       >
         <TileLayer
           attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a>'
-          url={darkMode ? DARK_MAP : LIGHT_MAP}
+          url={MAP_TILES}
         />
-        <ThemeUpdater />
         <LocationMarker onLocationSelect={handleLocationSelect} />
         <LocateControl onLocationUpdate={handleLocationSelect} />
       </MapContainer>

@@ -1,12 +1,9 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import DarkModeToggle from './DarkModeToggle';
-import { useTheme } from '../contexts/ThemeContext';
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const { darkMode } = useTheme();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -22,7 +19,7 @@ export default function Navbar() {
   }, []);
 
   return (
-    <nav className={`navbar ${isScrolled ? 'navbar-scrolled' : ''} ${darkMode ? 'navbar-dark' : ''}`}>
+    <nav className={`navbar ${isScrolled ? 'navbar-scrolled' : ''}`}>
       <div className="container navbar-container">
         <Link to="/" className="navbar-logo">
           <span className="fire-icon"></span>
@@ -39,7 +36,6 @@ export default function Navbar() {
         </div>
 
         <div className="navbar-actions">
-          <DarkModeToggle />
           <Link to="/risk-map" className="cta-button">Check Wildfire Risk</Link>
 
           {/* Mobile Menu Button */}
@@ -63,10 +59,6 @@ export default function Navbar() {
         <Link to="/resources" className="mobile-nav-link" onClick={() => setIsMobileMenuOpen(false)}>Resources</Link>
         <Link to="/contact" className="mobile-nav-link" onClick={() => setIsMobileMenuOpen(false)}>Contact</Link>
         <div className="mobile-actions">
-          <div className="mobile-theme-toggle">
-            <span>Dark Mode</span>
-            <DarkModeToggle />
-          </div>
           <Link to="/risk-map" className="mobile-cta-button" onClick={() => setIsMobileMenuOpen(false)}>Check Wildfire Risk</Link>
         </div>
       </div>

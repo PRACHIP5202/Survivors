@@ -18,15 +18,15 @@ html {
 }
 
 /* Hero Section */
-.hero-section {
-  padding: 8rem 0 6rem 0;
+.how-it-works-hero {
+  padding: 6rem 0 4rem 0;
   background: linear-gradient(135deg, #2d5a4b 0%, #1e3d33 100%);
   color: white;
   position: relative;
   overflow: hidden;
 }
 
-.hero-section::before {
+.how-it-works-hero::before {
   content: '';
   position: absolute;
   top: 0;
@@ -43,10 +43,11 @@ html {
   margin: 0 auto;
   position: relative;
   z-index: 2;
+  padding: 0 2rem;
 }
 
 .hero-title {
-  font-size: 3.5rem;
+  font-size: clamp(2.5rem, 5vw, 3.5rem);
   font-weight: 800;
   margin-bottom: 1.5rem;
   background: linear-gradient(135deg, #ffffff 0%, #a7f3d0 100%);
@@ -57,11 +58,13 @@ html {
 }
 
 .hero-description {
-  font-size: 1.3rem;
+  font-size: clamp(1.1rem, 2vw, 1.3rem);
   line-height: 1.6;
   color: rgba(255, 255, 255, 0.9);
-  margin-bottom: 0;
+  margin-bottom: 3rem;
 }
+
+
 
 /* Process Section */
 .process-section {
@@ -341,89 +344,6 @@ html {
   outline-offset: 4px;
 }
 
-/* Dark Mode Support */
-[data-theme="dark"] .how-it-works-page {
-  background: linear-gradient(135deg, #0f1a17 0%, #1a2f26 100%);
-}
-
-[data-theme="dark"] .process-section {
-  background: #121212;
-}
-
-[data-theme="dark"] .technology-section {
-  background: linear-gradient(135deg, #0f1a17 0%, #1a2f26 100%);
-}
-
-[data-theme="dark"] .data-sources-section {
-  background: #121212;
-}
-
-[data-theme="dark"] .section-title {
-  color: #e0e0e0;
-}
-
-[data-theme="dark"] .process-card,
-[data-theme="dark"] .technology-card {
-  background: #1e1e1e;
-  border-color: rgba(255, 255, 255, 0.1);
-  color: #e0e0e0;
-}
-
-[data-theme="dark"] .process-title,
-[data-theme="dark"] .tech-title,
-[data-theme="dark"] .source-name {
-  color: #ffffff;
-}
-
-[data-theme="dark"] .process-description,
-[data-theme="dark"] .tech-description,
-[data-theme="dark"] .source-description,
-[data-theme="dark"] .section-subtitle {
-  color: #b0b0b0;
-}
-
-[data-theme="dark"] .data-source-card {
-  background: linear-gradient(135deg, #1e1e1e 0%, #0f1a17 100%);
-  border-color: rgba(255, 255, 255, 0.1);
-}
-
-[data-theme="dark"] .process-details li {
-  color: #b0b0b0;
-}
-
-/* High contrast mode support */
-@media (prefers-contrast: high) {
-  .process-card,
-  .technology-card,
-  .data-source-card {
-    border: 2px solid #2d5a4b;
-  }
-  
-  .hero-section {
-    background: #1e3d33;
-  }
-  
-  .section-title,
-  .process-title,
-  .tech-title,
-  .source-name {
-    font-weight: 700;
-  }
-}
-
-/* Reduced motion support */
-@media (prefers-reduced-motion: reduce) {
-  * {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-  }
-  
-  html {
-    scroll-behavior: auto;
-  }
-}
-
 /* Responsive Design */
 @media (max-width: 1024px) {
   .container {
@@ -442,8 +362,8 @@ html {
 }
 
 @media (max-width: 768px) {
-  .hero-section {
-    padding: 6rem 0 4rem 0;
+  .how-it-works-hero {
+    padding: 4rem 0 3rem 0;
   }
   
   .hero-title {
@@ -453,6 +373,15 @@ html {
   
   .hero-description {
     font-size: 1.1rem;
+  }
+  
+  .hero-stats {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  
+  .stat-number {
+    font-size: 2rem;
   }
   
   .process-section,
@@ -504,8 +433,8 @@ html {
     padding: 0 1rem;
   }
   
-  .hero-section {
-    padding: 4rem 0 3rem 0;
+  .how-it-works-hero {
+    padding: 3rem 0 2rem 0;
   }
   
   .hero-title {
@@ -514,6 +443,14 @@ html {
   
   .hero-description {
     font-size: 1rem;
+  }
+  
+  .hero-stats {
+    gap: 1rem;
+  }
+  
+  .stat-number {
+    font-size: 1.8rem;
   }
   
   .process-section,
@@ -539,5 +476,58 @@ html {
   .process-icon,
   .tech-icon {
     font-size: 2rem;
+  }
+}
+
+
+
+
+
+
+/* High Contrast Mode */
+@media (prefers-contrast: high) {
+  .process-card,
+  .technology-card,
+  .data-source-card {
+    border-width: 2px;
+  }
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+/* Focus Styles for Accessibility */
+.process-card:focus,
+.technology-card:focus,
+.data-source-card:focus {
+  outline: 3px solid var(--forest-green, #2d5e2d);
+  outline-offset: 2px;
+}
+
+/* Print Styles */
+@media print {
+  .hero-section,
+  .process-section,
+  .technology-section,
+  .data-sources-section {
+    background: none !important;
+    color: black !important;
+  }
+  
+  .process-card,
+  .technology-card,
+  .data-source-card {
+    box-shadow: none !important;
+    border: 1px solid #000 !important;
   }
 }

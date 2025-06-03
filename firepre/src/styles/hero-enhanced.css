@@ -42,23 +42,3 @@
   box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3); /* Enhanced shadow on hover */
 }
 
-/* Dark mode specific styles for better contrast */
-[data-theme='dark'] .hero-title {
-  color: #ffffff; /* Pure white for maximum contrast */
-  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7); /* Stronger shadow in dark mode */
-}
-
-[data-theme='dark'] .hero-subtitle {
-  color: #f0f0f0; /* Very light gray for better readability */
-  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5); /* Stronger shadow */
-}
-
-[data-theme='dark'] .hero-cta {
-  background-color: var(--forest-green);
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4); /* Stronger shadow in dark mode */
-}
-
-[data-theme='dark'] .hero-cta:hover {
-  background-color: var(--burnt-orange);
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.5); /* Enhanced shadow on hover */
-}

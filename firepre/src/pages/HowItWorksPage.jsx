@@ -75,7 +75,7 @@ export default function HowItWorksPage() {
       {/* Hero Section */}
       <motion.section 
         ref={heroRef}
-        className="hero-section"
+        className="how-it-works-hero"
         initial={{ opacity: 0, y: 30 }}
         animate={heroInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
         transition={{ duration: 0.8 }}

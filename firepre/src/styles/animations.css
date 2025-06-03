@@ -27,17 +27,6 @@
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
 }
 
-/* Dark mode card hover */
-[data-theme='dark'] .card:hover,
-[data-theme='dark'] .prediction-panel:hover,
-[data-theme='dark'] .weather-info-card:hover {
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
-}
-
-/* Improve button press effect */
-button:active,
-.cta-button:active,
-.hero-cta:active,
 .submit-button:active,
 .form-button:active {
   transform: scale(0.98);
@@ -78,7 +67,3 @@ button:active,
   100% { opacity: 1; }
 }
 
-/* Enhance transitions in dark mode */
-[data-theme='dark'] * {
-  transition: all 0.3s ease;
-}

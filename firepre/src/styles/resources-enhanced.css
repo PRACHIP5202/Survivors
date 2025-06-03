@@ -544,84 +544,29 @@ html {
   margin: 0;
 }
 
-/* Dark Mode Support */
-[data-theme="dark"] .resources-page {
-  background: linear-gradient(135deg, #0f1a17 0%, #1a2f26 100%);
-}
 
-[data-theme="dark"] .filter-section {
-  background: #121212;
-}
 
-[data-theme="dark"] .resources-section {
-  background: linear-gradient(135deg, #0f1a17 0%, #1a2f26 100%);
-}
 
-[data-theme="dark"] .search-input,
-[data-theme="dark"] .sort-select {
-  background: #1e1e1e;
-  border-color: rgba(255, 255, 255, 0.1);
-  color: #e0e0e0;
-}
 
-[data-theme="dark"] .search-input::placeholder {
-  color: #b0b0b0;
-}
 
-[data-theme="dark"] .filter-tab {
-  background: #1e1e1e;
-  border-color: rgba(255, 255, 255, 0.1);
-  color: #e0e0e0;
-}
 
-[data-theme="dark"] .filter-tab:hover {
-  background: #2d2d2d;
-}
 
-[data-theme="dark"] .resource-card {
-  background: #1e1e1e;
-  border-color: rgba(255, 255, 255, 0.1);
-  color: #e0e0e0;
-}
 
-[data-theme="dark"] .resource-card.featured {
-  background: linear-gradient(135deg, #1e1e1e 0%, #2d2a1a 100%);
-}
 
-[data-theme="dark"] .resource-title {
-  color: #ffffff;
-}
-
-[data-theme="dark"] .resource-description {
-  color: #b0b0b0;
-}
-
-[data-theme="dark"] .resource-tag {
-  background: #2d2d2d;
-  color: #e0e0e0;
-}
-
-[data-theme="dark"] .no-results h3 {
-  color: #e0e0e0;
-}
-
-/* High contrast mode support */
+/* High Contrast Mode */
 @media (prefers-contrast: high) {
-  .resource-card {
-    border: 2px solid #2d5a4b;
+  .resource-card,
+  .filter-tab,
+  .newsletter-form {
+    border-width: 2px;
   }
   
-  .filter-tab.active {
-    background: #1e3d33;
-  }
-  
-  .resource-title,
-  .newsletter-title {
-    font-weight: 700;
+  .newsletter-input:focus {
+    border-width: 3px;
   }
 }
 
-/* Reduced motion support */
+/* Reduced Motion */
 @media (prefers-reduced-motion: reduce) {
   * {
     animation-duration: 0.01ms !important;
@@ -634,139 +579,25 @@ html {
   }
 }
 
-/* Responsive Design */
-@media (max-width: 1024px) {
-  .container {
-    padding: 0 1.5rem;
-  }
-  
-  .resources-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1.5rem;
-  }
-  
-  .newsletter-content {
-    grid-template-columns: 1fr;
-    gap: 3rem;
-  }
-  
-  .hero-stats {
-    gap: 2rem;
-  }
+/* Focus Styles for Accessibility */
+.resource-card:focus,
+.filter-tab:focus,
+.newsletter-button:focus {
+  outline: 3px solid var(--forest-green, #2d5e2d);
+  outline-offset: 2px;
 }
 
-@media (max-width: 768px) {
-  .resources-hero {
-    padding: 6rem 0 4rem 0;
-  }
-  
-  .hero-title {
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
-  }
-  
-  .hero-description {
-    font-size: 1.1rem;
-  }
-  
-  .hero-stats {
-    flex-direction: column;
-    gap: 1.5rem;
-  }
-  
-  .stat-number {
-    font-size: 2rem;
-  }
-  
-  .filter-section,
-  .resources-section,
+/* Print Styles */
+@media print {
+  .resources-hero,
   .newsletter-section {
-    padding: 3rem 0;
+    background: none !important;
+    color: black !important;
   }
   
-  .search-controls {
-    flex-direction: column;
-    align-items: stretch;
-    gap: 1rem;
-  }
-  
-  .search-input-wrapper {
-    max-width: none;
-  }
-  
-  .category-filter {
-    gap: 0.5rem;
-  }
-  
-  .filter-tab {
-    padding: 0.8rem 1rem;
-    font-size: 0.9rem;
-  }
-  
-  .resources-grid {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-  }
-  
-  .resource-card {
-    margin: 0 auto;
-    max-width: 400px;
-  }
-  
-  .newsletter-title {
-    font-size: 2rem;
-  }
-  
+  .resource-card,
   .newsletter-form {
-    padding: 2rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .container {
-    padding: 0 1rem;
-  }
-  
-  .resources-hero {
-    padding: 4rem 0 3rem 0;
-  }
-  
-  .hero-title {
-    font-size: 2rem;
-  }
-  
-  .hero-description {
-    font-size: 1rem;
-  }
-  
-  .filter-section,
-  .resources-section,
-  .newsletter-section {
-    padding: 2.5rem 0;
-  }
-  
-  .filter-tab {
-    padding: 0.7rem 0.8rem;
-    font-size: 0.85rem;
-  }
-  
-  .tab-name {
-    display: none;
-  }
-  
-  .resource-content {
-    padding: 1.5rem;
-  }
-  
-  .resource-title {
-    font-size: 1.2rem;
-  }
-  
-  .newsletter-title {
-    font-size: 1.8rem;
-  }
-  
-  .newsletter-form {
-    padding: 1.5rem;
+    box-shadow: none !important;
+    border: 1px solid #000 !important;
   }
 }

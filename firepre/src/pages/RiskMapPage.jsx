@@ -7,7 +7,6 @@ import ApiStatus from '../components/ApiStatus';
 import { getWeatherData } from '../utils/GetWeatherdata';
 import { predictRisk } from '../utils/Predictor';
 import { getLocationName } from '../utils/GeocodingService';
-import { useTheme } from '../contexts/ThemeContext';
 import '../styles/locations.css';
 
 export default function RiskMapPage() {
@@ -16,7 +15,6 @@ export default function RiskMapPage() {
   const [selectedLocation, setSelectedLocation] = useState(null);
   const [locationName, setLocationName] = useState('');
   const [apiStatus, setApiStatus] = useState({ status: '', message: '' });
-  const { darkMode } = useTheme();
 
   const handleLocationChange = async ({ lat, lng }) => {
     setSelectedLocation({ lat, lng });
@@ -81,7 +79,7 @@ export default function RiskMapPage() {
   };
 
   return (
-    <div className={`risk-map-page ${darkMode ? 'risk-map-dark' : ''}`}>
+    <div className="risk-map-page">
       <ApiStatus status={apiStatus.status} message={apiStatus.message} />
       <div className="container">
         <div className="page-header">

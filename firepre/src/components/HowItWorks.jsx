@@ -1,5 +1,11 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
+import { 
+  SignalIcon, 
+  CpuChipIcon, 
+  MagnifyingGlassIcon, 
+  ExclamationTriangleIcon 
+} from '@heroicons/react/24/outline';
 
 export default function HowItWorks() {
   const [ref, inView] = useInView({
@@ -12,25 +18,25 @@ export default function HowItWorks() {
       id: 1,
       title: 'Collect Data',
       description: 'Gather satellite imagery, weather conditions, and vegetation data from multiple reliable sources.',
-      icon: '📡',
+      icon: SignalIcon,
     },
     {
       id: 2,
       title: 'Process via AI Model',
       description: 'Our advanced machine learning algorithms analyze patterns and identify risk factors.',
-      icon: '🧠',
+      icon: CpuChipIcon,
     },
     {
       id: 3,
       title: 'Predict Risk Zones',
       description: 'Generate accurate risk assessments and color-coded maps for specific geographic areas.',
-      icon: '🔍',
+      icon: MagnifyingGlassIcon,
     },
     {
       id: 4,
       title: 'Alert & Recommend',
       description: 'Notify citizens and authorities with actionable information to prevent and prepare.',
-      icon: '🚨',
+      icon: ExclamationTriangleIcon,
     },
   ];
 
@@ -66,18 +72,23 @@ export default function HowItWorks() {
           initial="hidden"
           animate={inView ? 'visible' : 'hidden'}
         >
-          {steps.map((step) => (
-            <motion.div
-              key={step.id}
-              className="step-card"
-              variants={itemVariants}
-            >
-              <div className="step-icon">{step.icon}</div>
-              <div className="step-number">{step.id}</div>
-              <h3 className="step-title">{step.title}</h3>
-              <p className="step-description">{step.description}</p>
-            </motion.div>
-          ))}
+          {steps.map((step) => {
+            const IconComponent = step.icon;
+            return (
+              <motion.div
+                key={step.id}
+                className="step-card"
+                variants={itemVariants}
+              >
+                <div className="step-icon">
+                  <IconComponent />
+                </div>
+                <div className="step-number">{step.id}</div>
+                <h3 className="step-title">{step.title}</h3>
+                <p className="step-description">{step.description}</p>
+              </motion.div>
+            );
+          })}
         </motion.div>
       </div>
     </section>

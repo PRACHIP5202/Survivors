@@ -66,39 +66,4 @@
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
 }
 
-/* Dark mode forms */
-[data-theme='dark'] .form-group label {
-  color: var(--text-color);
-  font-weight: 500;
-}
 
-[data-theme='dark'] .form-group input,
-[data-theme='dark'] .form-group select,
-[data-theme='dark'] .form-group textarea {
-  background-color: var(--input-bg);
-  color: var(--input-text);
-  border-color: var(--input-border);
-}
-
-[data-theme='dark'] .form-group input:focus,
-[data-theme='dark'] .form-group select:focus,
-[data-theme='dark'] .form-group textarea:focus {
-  border-color: var(--forest-green-light);
-  box-shadow: 0 0 0 3px rgba(64, 145, 108, 0.25);
-}
-
-[data-theme='dark'] .form-group input::placeholder,
-[data-theme='dark'] .form-group textarea::placeholder {
-  color: rgba(224, 224, 224, 0.6);
-}
-
-[data-theme='dark'] .form-button {
-  background-color: var(--forest-green);
-  color: #ffffff;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-}
-
-[data-theme='dark'] .form-button:hover {
-  background-color: var(--forest-green-light);
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-}

@@ -1,12 +1,10 @@
 import { Link } from 'react-router-dom';
-import { useTheme } from '../contexts/ThemeContext';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
-  const { darkMode } = useTheme();
   
   return (
-    <footer className={`footer ${darkMode ? 'footer-dark' : ''}`}>
+    <footer className="footer">
       <div className="container footer-container">
         <div className="footer-section">
           <Link to="/" className="footer-logo">

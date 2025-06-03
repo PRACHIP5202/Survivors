@@ -66,12 +66,6 @@
   animation: spin 1s linear infinite;
 }
 
-[data-theme='dark'] .api-status-loading::after {
-  border-color: #5aa8ff;
-  border-top-color: transparent;
-}
-
-@keyframes slideInRight {
   from {
     opacity: 0;
     transform: translateX(30px);
@@ -86,25 +80,7 @@
   to { transform: translateY(-50%) rotate(360deg); }
 }
 
-/* Dark mode styles */
-[data-theme='dark'] .api-status {
-  box-shadow: 0 3px 15px rgba(0, 0, 0, 0.3);
-}
-
-[data-theme='dark'] .api-status-success {
-  background-color: rgba(32, 74, 41, 0.9);
   color: #e0f0e3;
   border-left: 4px solid #4CAF50;
 }
 
-[data-theme='dark'] .api-status-error {
-  background-color: rgba(74, 28, 34, 0.9);
-  color: #f8d7da;
-  border-left: 4px solid #ff5252;
-}
-
-[data-theme='dark'] .api-status-loading {
-  background-color: rgba(0, 64, 133, 0.9);
-  color: #cce5ff;
-  border-left: 4px solid #5aa8ff;
-}

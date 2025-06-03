@@ -532,36 +532,32 @@ html {
   font-size: 1.2rem;
 }
 
-/* Dark Mode Support */
-[data-theme="dark"] .contact-page-enhanced {
-  background-color: var(--bg-dark, #1a202c);
-  color: var(--text-dark, #f7fafc);
-}
 
-[data-theme="dark"] .contact-method-card,
-[data-theme="dark"] .enhanced-contact-form,
-[data-theme="dark"] .location-card {
-  background-color: var(--card-dark, #2d3748);
-  border-color: var(--border-dark, #4a5568);
-}
 
-[data-theme="dark"] .form-group input,
-[data-theme="dark"] .form-group select,
-[data-theme="dark"] .form-group textarea {
-  background-color: var(--input-dark, #374151);
-  border-color: var(--border-dark, #4a5568);
-  color: var(--text-dark, #f7fafc);
-}
 
-[data-theme="dark"] .method-email {
-  background-color: rgba(45, 94, 45, 0.2);
-}
 
-[data-theme="dark"] .contact-form-section {
-  background: linear-gradient(135deg, var(--bg-dark, #1a202c), var(--bg-secondary-dark, #2d3748));
-}
 
 /* Responsive Design */
+@media (max-width: 1024px) {
+  .container {
+    padding: 0 1.5rem;
+  }
+  
+  .contact-methods-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+  
+  .locations-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+  
+  .enhanced-contact-form {
+    margin: 0 1rem;
+  }
+}
+
 @media (max-width: 768px) {
   .hero-stats {
     flex-direction: column;

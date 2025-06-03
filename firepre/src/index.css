@@ -45,36 +45,6 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Dark Mode Theme */
-[data-theme='dark'] {
-  --bg-color: #121212;
-  --text-color: #E8E8E8; /* Slightly brighter for better readability */
-  --header-color: #FFFFFF; /* Pure white for headers - better contrast */
-  --card-bg: #1E1E1E;
-  --card-border: rgba(255, 255, 255, 0.12); /* Slightly stronger border */
-  --hover-bg: rgba(255, 255, 255, 0.07); /* More visible hover state */
-  --button-text: #FFFFFF;
-  --map-border: rgba(255, 255, 255, 0.15); /* More visible border */
-  --shadow-color: rgba(0, 0, 0, 0.5);
-  --input-bg: #2A2A2A;
-  --input-text: #FFFFFF; /* Brighter text in inputs for readability */
-  --input-border: #555555; /* Slightly brighter border */
-  --navbar-bg: rgba(18, 18, 18, 0.97); /* More opaque navbar */
-  --footer-bg: #1A1A1A;
-  --divider-color: rgba(255, 255, 255, 0.15); /* More visible dividers */
-  --panel-bg: #1E1E1E;
-  --secondary-text: #BDBDBD; /* Brighter secondary text */
-  
-  /* Adjust risk colors for dark mode - optimized for visibility */
-  --low-risk: #66DF66; /* Brighter green */
-  --medium-risk: #FFBB4D; /* Slightly more saturated orange */
-  --high-risk: #FF5252; /* Keeping vibrant red */
-  
-  /* Override forest green for dark mode */
-  --forest-green: #4CAF50;
-  --forest-green-light: #6FDC75;
-}
-
 /* Animation for theme transition */
 * {
   transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
@@ -168,31 +138,8 @@ input:focus, textarea:focus, select:focus {
   box-shadow: 0 0 0 2px rgba(45, 106, 79, 0.2);
 }
 
-/* Dark mode form focus */
-[data-theme='dark'] input:focus,
-[data-theme='dark'] textarea:focus,
-[data-theme='dark'] select:focus {
-  box-shadow: 0 0 0 2px rgba(77, 175, 124, 0.5); /* Brighter and more visible focus ring */
-  border-color: var(--forest-green-light); /* Highlight border when focused */
 }
 
-/* Enhanced form styles for dark mode */
-[data-theme='dark'] input, 
-[data-theme='dark'] select, 
-[data-theme='dark'] textarea {
-  background-color: var(--input-bg);
-  color: var(--input-text);
-  border-color: var(--input-border);
-  transition: all 0.2s ease;
-}
-
-[data-theme='dark'] .form-group label {
-  color: var(--text-color);
-  font-weight: 500; /* Slightly bolder for better readability */
-  margin-bottom: 6px; /* Extra spacing before the input */
-}
-
-[data-theme='dark'] input::placeholder {
   color: rgba(224, 224, 224, 0.6); /* More visible placeholder text */
 }
 
@@ -207,22 +154,6 @@ input:focus, textarea:focus, select:focus {
   color: var(--text-color);
 }
 
-/* Navbar with enhanced dark mode styling */
-[data-theme='dark'] .navbar {
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-}
-
-[data-theme='dark'] .nav-link:after {
-  background-color: var(--forest-green-light); /* Brighter underline in dark mode */
-}
-
-[data-theme='dark'] .cta-button {
-  background-color: var(--forest-green);
-  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3);
-}
-
-[data-theme='dark'] .cta-button:hover {
   background-color: var(--burnt-orange);
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
 }
