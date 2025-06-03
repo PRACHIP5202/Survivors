@@ -189,7 +189,7 @@ jobs:
       - uses: actions/checkout@v2
       - uses: actions/setup-python@v2
         with:
-          python-version: '3.9'
+          python-version: '3.11'
       - run: pip install -r backend/requirements.txt
       - run: cd backend && python -m pytest
 

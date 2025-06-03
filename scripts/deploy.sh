@@ -26,7 +26,7 @@ print_error() {
 check_requirements() {
   print_section "Checking requirements"
   
-  commands=("node" "npm" "python3" "docker" "git")
+  commands=("node" "npm" "python3" "git")
   
   for cmd in "${commands[@]}"; do
     if ! command -v $cmd &> /dev/null; then
@@ -92,24 +92,37 @@ run_tests() {
 deploy() {
   print_section "Deployment"
   
-  if [ "$1" == "docker" ]; then
-    print_step "Deploying with Docker..."
-    docker-compose up -d --build || { print_error "Docker deployment failed"; exit 1; }
-    
-  elif [ "$1" == "vercel" ]; then
+  if [ "$1" == "vercel" ]; then
     print_step "Deploying frontend to Vercel..."
     cd firepre || exit 1
     npx vercel --prod || { print_error "Vercel deployment failed"; exit 1; }
     cd ..
     
+  elif [ "$1" == "netlify" ]; then
+    print_step "Deploying frontend to Netlify..."
+    cd firepre || exit 1
+    npx netlify deploy --prod || { print_error "Netlify deployment failed"; exit 1; }
+    cd ..
+    
   elif [ "$1" == "heroku" ]; then
     print_step "Deploying backend to Heroku..."
     cd backend || exit 1
-    # Add Heroku deployment commands here
+    git push heroku main || { print_error "Heroku deployment failed"; exit 1; }
+    cd ..
+    
+  elif [ "$1" == "render" ]; then
+    print_step "Deploying backend to Render..."
+    echo "For Render deployment, connect your GitHub repository to Render.com"
+    echo "See docs/DEPLOYMENT.md for detailed instructions"
+    
+  elif [ "$1" == "firebase" ]; then
+    print_step "Deploying frontend to Firebase..."
+    cd firepre || exit 1
+    npx firebase deploy || { print_error "Firebase deployment failed"; exit 1; }
     cd ..
     
   else
-    print_error "Unknown deployment target. Use docker, vercel, or heroku"
+    print_error "Unknown deployment target. Use vercel, netlify, heroku, render, or firebase"
     exit 1
   fi
   
@@ -119,7 +132,7 @@ deploy() {
 # Main function
 main() {
   if [ $# -eq 0 ]; then
-    print_error "Please specify a deployment target: docker, vercel, or heroku"
+    print_error "Please specify a deployment target: vercel, netlify, heroku, render, or firebase"
     exit 1
   fi
   

@@ -13,7 +13,7 @@ fi
 
 # Check if Python is installed
 if ! command -v python3 &> /dev/null; then
-    echo "❌ Python is not installed. Please install Python 3.8 or higher."
+    echo "❌ Python is not installed. Please install Python 3.11 or higher."
     exit 1
 fi
 

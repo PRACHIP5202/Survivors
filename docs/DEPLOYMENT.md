@@ -1,37 +1,121 @@
 # Deployment Guide
 
 ## Overview
-This guide covers deploying EmberEye to production environments.
+This guide covers deploying EmberEye to production environments using platform-specific options.
 
-## Frontend Deployment (Vercel/Netlify)
+## Prerequisites
 
-### Vercel Deployment
-1. **Build Command**: `npm run build`
-2. **Output Directory**: `dist`
-3. **Environment Variables**:
-   - `VITE_WEATHER_API_KEY`
-   - `VITE_API_BASE_URL` (your backend URL)
+- Node.js (v18+)
+- Python (v3.11+)
+- npm or yarn
+- Git
+
+## Frontend Deployment Options
+
+### Vercel Deployment (Recommended)
+1. **Install Vercel CLI**:
+   ```bash
+   npm install -g vercel
+   ```
+
+2. **Deploy to Vercel**:
+   ```bash
+   npm run deploy:vercel
+   # OR
+   cd firepre && vercel --prod
+   ```
+
+3. **Build Settings**:
+   - **Build Command**: `npm run build`
+   - **Output Directory**: `dist`
+   - **Environment Variables**:
+     - `VITE_WEATHER_API_KEY`
+     - `VITE_API_BASE_URL` (your backend URL)
 
 ### Netlify Deployment
-1. **Build Command**: `npm run build`
-2. **Publish Directory**: `dist`
-3. **Environment Variables**: Same as Vercel
+1. **Install Netlify CLI**:
+   ```bash
+   npm install -g netlify-cli
+   ```
 
-## Backend Deployment
+2. **Deploy to Netlify**:
+   ```bash
+   npm run deploy:netlify
+   # OR
+   cd firepre && netlify deploy --prod
+   ```
 
-### Railway/Render/Heroku Deployment
-1. **Start Command**: `uvicorn main:app --host 0.0.0.0 --port $PORT`
-2. **Environment Variables**:
-   - `WEATHER_API_KEY`
-   - `MODEL_PATH`
-   - `DEBUG=False`
+3. **Build Settings**:
+   - **Build Command**: `npm run build`
+   - **Publish Directory**: `dist`
+   - **Environment Variables**: Same as Vercel
+
+### Firebase Hosting
+1. **Install Firebase CLI**:
+   ```bash
+   npm install -g firebase-tools
+   ```
+
+2. **Initialize Firebase** (first time only):
+   ```bash
+   cd firepre
+   firebase init hosting
+   ```
+
+3. **Deploy to Firebase**:
+   ```bash
+   npm run deploy:firebase
+   # OR
+   cd firepre && firebase deploy
+   ```
+
+## Backend Deployment Options
 
 ### Heroku Deployment
-1. Create `Procfile`:
+1. **Install Heroku CLI**:
+   ```bash
+   brew install heroku
    ```
-   web: uvicorn main:app --host 0.0.0.0 --port $PORT
+
+2. **Login to Heroku**:
+   ```bash
+   heroku login
    ```
-2. Set environment variables in Heroku dashboard
+
+3. **Create a new Heroku app** (first time only):
+   ```bash
+   cd backend
+   heroku create your-app-name
+   ```
+
+4. **Deploy to Heroku**:
+   ```bash
+   npm run deploy:heroku
+   # OR
+   cd backend && git push heroku main
+   ```
+
+5. **Environment Setup**:
+   - Create `Procfile` (already included):
+     ```
+     web: uvicorn main:app --host 0.0.0.0 --port $PORT
+     ```
+   - Set environment variables in Heroku dashboard
+
+### Render Deployment
+1. **Create a new Web Service** on Render.com
+2. **Connect your GitHub repository**
+3. **Configure build settings**:
+   - **Build Command**: `pip install -r requirements.txt`
+   - **Start Command**: `uvicorn main:app --host 0.0.0.0 --port $PORT`
+4. **Add environment variables** in the Render dashboard
+
+### Railway Deployment
+1. **Create new project** on Railway.app
+2. **Connect your GitHub repository**
+3. **Configure settings**:
+   - **Start Command**: `uvicorn main:app --host 0.0.0.0 --port $PORT`
+4. **Set environment variables** in Railway dashboard
 
 ## Environment Configuration
 
@@ -44,6 +128,7 @@ DEBUG=False
 LOG_LEVEL=INFO
 API_HOST=0.0.0.0
 API_PORT=8000
+CORS_ORIGINS=https://your-frontend-domain.com
 ```
 
 #### Frontend (.env)

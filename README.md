@@ -25,7 +25,7 @@ EmberEye helps communities prepare for and mitigate wildfire risks through:
 
 ### Prerequisites
 - Node.js (v18+)
-- Python (v3.8+)
+- Python (v3.11+)
 - OpenWeatherMap API key
 
 ### Installation
@@ -146,6 +146,25 @@ npm run test:backend
 3. Commit your changes (`git commit -m 'Add amazing feature'`)
 4. Push to the branch (`git push origin feature/amazing-feature`)
 5. Open a Pull Request
+
+## 🚢 Deployment
+
+EmberEye can be deployed using various platform-specific options:
+
+### Frontend Deployment
+- **Vercel** (recommended): `npm run deploy:vercel`
+- **Netlify**: `npm run deploy:netlify`
+- **Firebase**: `npm run deploy:firebase`
+
+### Backend Deployment
+- **Heroku**: `npm run deploy:heroku`
+- **Render**: Connect GitHub repository to Render.com
+- **Railway**: Connect GitHub repository to Railway.app
+
+For complete deployment instructions, see:
+- [Deployment Guide](docs/DEPLOYMENT.md)
+- [Deployment Options](DEPLOYMENT_OPTIONS.md)
+- [Deployment Checklist](DEPLOYMENT_CHECKLIST.md)
 
 ## 📄 License
 

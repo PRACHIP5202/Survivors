@@ -2,14 +2,11 @@ import { describe, it, expect, vi } from 'vitest'
 import { render, screen } from '@testing-library/react'
 import { BrowserRouter } from 'react-router-dom'
 import Navbar from '../components/Navbar'
-import { ThemeProvider } from '../contexts/ThemeContext'
 
 // Test wrapper component
 const TestWrapper = ({ children }) => (
   <BrowserRouter>
-    <ThemeProvider>
-      {children}
-    </ThemeProvider>
+    {children}
   </BrowserRouter>
 )
 

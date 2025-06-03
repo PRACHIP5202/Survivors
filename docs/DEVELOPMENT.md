@@ -4,7 +4,7 @@
 
 ### Required Software
 - **Node.js** (v18 or higher) - [Download](https://nodejs.org/)
-- **Python** (v3.8 or higher) - [Download](https://python.org/)
+- **Python** (v3.11 or higher) - [Download](https://python.org/)
 - **Git** - [Download](https://git-scm.com/)
 
 ### Recommended Tools

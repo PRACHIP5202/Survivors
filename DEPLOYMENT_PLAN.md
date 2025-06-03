@@ -52,8 +52,8 @@ VITE_API_BASE_URL=https://your-backend-domain.com/api
 
 ### Backend Deployment
 1. Create a `Procfile` for cloud deployment platforms
-2. Configure Docker container (if applicable)
-3. Set up database connections (if applicable)
+2. Set up database connections (if applicable)
+3. Configure environment variables for production
 
 ### Frontend Deployment
 1. Configure build settings for production

@@ -23,9 +23,11 @@
     "validate": "./scripts/validate.sh",
     "check": "./scripts/validate.sh",
     "deploy": "./scripts/deploy.sh",
-    "deploy:docker": "./scripts/deploy.sh docker",
     "deploy:vercel": "./scripts/deploy.sh vercel",
+    "deploy:netlify": "./scripts/deploy.sh netlify",
     "deploy:heroku": "./scripts/deploy.sh heroku",
+    "deploy:render": "./scripts/deploy.sh render",
+    "deploy:firebase": "./scripts/deploy.sh firebase",
     "prod:env:check": "node scripts/check-env.js",
     "prep:deploy": "./scripts/prep-deploy.sh"
   },
@@ -52,6 +54,6 @@
   "license": "MIT",
   "engines": {
     "node": ">=18.0.0",
-    "python": ">=3.8"
+    "python": ">=3.11"
   }
 }
