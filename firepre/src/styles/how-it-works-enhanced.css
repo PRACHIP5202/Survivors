@@ -70,12 +70,13 @@ html {
 }
 
 .section-title {
-  font-size: 2.5rem;
+  font-size: clamp(2rem, 4vw, 3rem);
   font-weight: 700;
   text-align: center;
-  margin-bottom: 3rem;
-  color: #1e3d33;
+  margin-bottom: 1rem;
+  color: var(--text-color, #1e3d33);
   position: relative;
+  letter-spacing: -0.02em;
 }
 
 .section-title::after {
@@ -90,6 +91,15 @@ html {
   border-radius: 2px;
 }
 
+.section-subtitle {
+  font-size: 1.2rem;
+  color: var(--text-secondary, #666);
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto 3rem auto;
+  line-height: 1.6;
+}
+
 .process-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -98,11 +108,11 @@ html {
 }
 
 .process-card {
-  background: white;
-  border-radius: 20px;
+  background: var(--card-bg, white);
+  border-radius: 16px;
   padding: 2.5rem 2rem;
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
-  border: 1px solid rgba(45, 90, 75, 0.1);
+  border: 1px solid var(--border-color, rgba(45, 90, 75, 0.1));
   transition: all 0.3s ease;
   position: relative;
   overflow: hidden;
@@ -206,12 +216,12 @@ html {
 }
 
 .technology-card {
-  background: white;
+  background: var(--card-bg, white);
   border-radius: 16px;
   padding: 2rem;
   text-align: center;
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
-  border: 1px solid rgba(45, 90, 75, 0.08);
+  border: 1px solid var(--border-color, rgba(45, 90, 75, 0.08));
   transition: all 0.3s ease;
 }
 

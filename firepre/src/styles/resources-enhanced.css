@@ -89,10 +89,29 @@ html {
   letter-spacing: 0.5px;
 }
 
+/* Section Title and Subtitle Styles */
+.section-title {
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 700;
+  color: var(--text-color, #2c3e50);
+  margin-bottom: 1rem;
+  letter-spacing: -0.02em;
+  text-align: center;
+}
+
+.section-subtitle {
+  font-size: 1.2rem;
+  color: var(--text-secondary, #666);
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto 3rem auto;
+  line-height: 1.6;
+}
+
 /* Filter Section */
 .filter-section {
-  padding: 4rem 0;
-  background: white;
+  padding: 6rem 0;
+  background: var(--bg-color, white);
 }
 
 .search-controls {
@@ -219,7 +238,7 @@ html {
 
 /* Resources Section */
 .resources-section {
-  padding: 4rem 0 6rem 0;
+  padding: 6rem 0;
   background: linear-gradient(135deg, #f8fffe 0%, #eef9f6 100%);
 }
 
@@ -230,11 +249,11 @@ html {
 }
 
 .resource-card {
-  background: white;
-  border-radius: 20px;
+  background: var(--card-bg, white);
+  border-radius: 16px;
   overflow: hidden;
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
-  border: 1px solid rgba(45, 90, 75, 0.1);
+  border: 1px solid var(--border-color, rgba(45, 90, 75, 0.1));
   transition: all 0.3s ease;
   position: relative;
   will-change: transform;
@@ -428,13 +447,14 @@ html {
 
 
 .newsletter-title {
-  font-size: 2.5rem;
+  font-size: clamp(2rem, 4vw, 3rem);
   font-weight: 700;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
   background: linear-gradient(135deg, #ffffff 0%, #a7f3d0 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  letter-spacing: -0.02em;
 }
 
 .newsletter-description {
@@ -477,7 +497,7 @@ html {
 
 .newsletter-input {
   width: 100%;
-  padding: 1.2rem 1.5rem;
+  padding: 1.25rem 1.5rem;
   border: 2px solid rgba(255, 255, 255, 0.2);
   border-radius: 12px;
   background: rgba(255, 255, 255, 0.1);
@@ -499,7 +519,7 @@ html {
 
 .newsletter-button {
   width: 100%;
-  padding: 1.2rem 2rem;
+  padding: 1.25rem 2rem;
   background: linear-gradient(135deg, #48cc6c, #10b981);
   color: white;
   border: none;
