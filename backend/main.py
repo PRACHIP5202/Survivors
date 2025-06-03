@@ -19,16 +19,38 @@ app = FastAPI(
 )
 
 # Configure CORS
+from dotenv import load_dotenv
+load_dotenv()  # Load environment variables from .env file
+
+# Get allowed origins from environment variable or use default in development
+allowed_origins = os.getenv("CORS_ORIGINS", "http://localhost:5173").split(",")
+logger.info(f"Configured CORS with allowed origins: {allowed_origins}")
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # In production, replace with your frontend domain
+    allow_origins=allowed_origins,
     allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
+    allow_methods=["GET", "POST", "PUT", "DELETE"],
+    allow_headers=["Content-Type", "Authorization"],
 )
 
 # Import routers
 from app.routers import prediction, weather
+
+# Health check endpoint
+@app.get("/health", tags=["Health"])
+def health_check():
+    """Health check endpoint to verify API is running"""
+    return {
+        "status": "healthy",
+        "version": app.version,
+        "environment": "production" if not os.getenv("DEBUG", "False").lower() == "true" else "development"
+    }
+
+# API version prefix
+api_prefix = "/api/v1"
+app.include_router(prediction.router, prefix=api_prefix, tags=["Prediction"])
+app.include_router(weather.router, prefix=api_prefix, tags=["Weather"])
 
 # Include routers
 app.include_router(prediction.router, prefix="/api", tags=["prediction"])

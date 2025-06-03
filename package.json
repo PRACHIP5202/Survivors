@@ -6,8 +6,9 @@
     "dev": "concurrently \"npm run dev:backend\" \"npm run dev:frontend\"",
     "dev:frontend": "cd firepre && npm run dev",
     "dev:backend": "cd backend && python3 -m uvicorn main:app --reload --host 0.0.0.0 --port 8000",
-    "build": "npm run build:frontend",
+    "build": "npm run build:frontend && npm run build:backend",
     "build:frontend": "cd firepre && npm run build",
+    "build:backend": "cd backend && echo 'Backend build complete'",
     "install:all": "npm install && cd firepre && npm install && cd ../backend && pip3 install -r requirements.txt",
     "install:frontend": "cd firepre && npm install",
     "install:backend": "cd backend && pip3 install -r requirements.txt",
@@ -20,7 +21,13 @@
     "setup": "npm run install:all && npm run setup:env",
     "setup:env": "echo 'Please copy .env.example files to .env and configure your API keys'",
     "validate": "./scripts/validate.sh",
-    "check": "./scripts/validate.sh"
+    "check": "./scripts/validate.sh",
+    "deploy": "./scripts/deploy.sh",
+    "deploy:docker": "./scripts/deploy.sh docker",
+    "deploy:vercel": "./scripts/deploy.sh vercel",
+    "deploy:heroku": "./scripts/deploy.sh heroku",
+    "prod:env:check": "node scripts/check-env.js",
+    "prep:deploy": "./scripts/prep-deploy.sh"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.21",
