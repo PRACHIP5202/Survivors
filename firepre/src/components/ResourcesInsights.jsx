@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { Link } from 'react-router-dom';
+import { FireIcon, ChartBarIcon, BookOpenIcon } from '@heroicons/react/24/outline';
 
 export default function ResourcesInsights() {
   const [ref, inView] = useInView({
@@ -14,7 +15,8 @@ export default function ResourcesInsights() {
       title: 'How AI is Changing Wildfire Management',
       description: 'Explore the revolutionary impact of AI on preventing and fighting wildfires.',
       type: 'Article',
-      image: '🔥',
+      icon: FireIcon,
+      gradient: 'from-orange-500 to-red-500',
       link: '/resources/ai-wildfire-management',
     },
     {
@@ -22,7 +24,8 @@ export default function ResourcesInsights() {
       title: 'California 2024: A Case Study',
       description: 'Analysis of how early prediction helped reduce wildfire impact in California.',
       type: 'Case Study',
-      image: '📊',
+      icon: ChartBarIcon,
+      gradient: 'from-green-500 to-emerald-500',
       link: '/resources/california-case-study',
     },
     {
@@ -30,7 +33,8 @@ export default function ResourcesInsights() {
       title: 'Researcher API Documentation',
       description: 'Access our prediction data for academic research and public safety initiatives.',
       type: 'API Docs',
-      image: '📚',
+      icon: BookOpenIcon,
+      gradient: 'from-blue-500 to-cyan-500',
       link: '/resources/api-documentation',
     },
   ];
@@ -67,21 +71,27 @@ export default function ResourcesInsights() {
           initial="hidden"
           animate={inView ? 'visible' : 'hidden'}
         >
-          {resources.map((resource) => (
-            <motion.div
-              key={resource.id}
-              className="resource-card"
-              variants={itemVariants}
-            >
-              <div className="resource-image">{resource.image}</div>
-              <div className="resource-type">{resource.type}</div>
-              <h3 className="resource-title">{resource.title}</h3>
-              <p className="resource-description">{resource.description}</p>
-              <Link to={resource.link} className="resource-link">
-                Read More →
-              </Link>
-            </motion.div>
-          ))}
+          {resources.map((resource, index) => {
+            const IconComponent = resource.icon;
+            return (
+              <motion.div
+                key={resource.id}
+                className="resource-card"
+                variants={itemVariants}
+              >
+                <div className="resource-icon">
+                  <IconComponent className="w-8 h-8 text-white" />
+                  <div className="resource-number">{index + 1}</div>
+                </div>
+                <div className="resource-type">{resource.type}</div>
+                <h3 className="resource-title">{resource.title}</h3>
+                <p className="resource-description">{resource.description}</p>
+                <Link to={resource.link} className="resource-link">
+                  Read More →
+                </Link>
+              </motion.div>
+            );
+          })}
         </motion.div>
 
         <div className="text-center view-all-resources">
