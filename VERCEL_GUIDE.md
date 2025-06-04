@@ -16,19 +16,21 @@ Click: "Import Git Repository"
 
 ### Step 3: Configuration Settings
 
-**IMPORTANT**: Use these exact settings for successful deployment:
+**IMPORTANT**: With the updated vercel.json, use these settings:
 
 ```
 ┌─────────────────────────────────────┐
 │ PROJECT CONFIGURATION               │
 ├─────────────────────────────────────┤
 │ Framework Preset:     Other         │
-│ Root Directory:       firepre       │
-│ Build Command:        npm run build │
-│ Output Directory:     dist          │
-│ Install Command:      npm install   │
+│ Root Directory:       /             │
+│ Build Command:        (auto-detect) │
+│ Output Directory:     (auto-detect) │
+│ Install Command:      (auto-detect) │
 └─────────────────────────────────────┘
 ```
+
+The `vercel.json` file in the root directory will handle all build configuration automatically.
 
 ### Step 4: Environment Variables (Optional)
 ```
@@ -45,10 +47,10 @@ Result: https://your-project-name.vercel.app
 ## 🔧 Configuration Details
 
 ### Why These Settings?
-- **Root Directory: `firepre`** → Points to React frontend folder
-- **Framework Preset: `Other`** → Vite projects need custom config
-- **Build Command: `npm run build`** → Uses Vite's production build
-- **Output Directory: `dist`** → Vite's default output folder
+- **Root Directory: `/`** → Uses root directory with vercel.json configuration
+- **Framework Preset: `Other`** → Custom configuration via vercel.json
+- **Auto-detect** → vercel.json handles build commands and output directory
+- **Build Process** → Automatically runs: `cd firepre && npm install && npm run build`
 
 ### Security Features Included
 - ✅ HTTPS automatic
