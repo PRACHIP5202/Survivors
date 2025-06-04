@@ -2,7 +2,7 @@
   "version": 2,
   "builds": [
     {
-      "src": "firepre/package.json",
+      "src": "package.json",
       "use": "@vercel/static-build",
       "config": {
         "distDir": "dist",
@@ -12,15 +12,11 @@
   ],
   "routes": [
     {
-      "src": "/(.*)",
-      "dest": "/firepre/dist/$1"
-    },
-    {
       "handle": "filesystem"
     },
     {
-      "src": "/.*",
-      "dest": "/firepre/dist/index.html"
+      "src": "/(.*)",
+      "dest": "/index.html"
     }
   ],
   "headers": [
