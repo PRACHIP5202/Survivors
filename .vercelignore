@@ -1,0 +1,11 @@
+backend/
+docs/
+tests/
+scripts/
+node_modules/
+*.md
+.git/
+.github/
+__pycache__/
+*.pyc
+*.log
